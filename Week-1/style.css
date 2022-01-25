@@ -1,0 +1,92 @@
+/* *{
+  box-sizing: border-box;
+  margin-bottom: 2%;
+  padding: ;
+} */
+
+/* The hero image */
+.hero-image {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/background.jpg");
+  /* Set a specific height */
+  height: 50%;
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+/* Place text in the middle of the image */
+.hero-text {
+  text-align: center;
+  /*this area started acting weird and I'm not sure why*/
+  /* position: absolute; */
+  top: 50%;
+  left: 50%;
+  /*transform: translate(-50%, -50%); */
+  color: white;
+}
+
+body{
+  background-color: #D5C7E2;
+}
+img{
+  max-width: 100%;
+  height: auto;
+  object-position: center;
+}
+h2{
+  size: 200pt;
+  letter-spacing: 5pt;
+  color: #3C224B;
+}
+h3{
+  color: #3C224B;
+  text-align: center;
+}
+h4{
+  text-align: center;
+}
+
+/*hmm what the heck*/
+.drawings {
+  text-align: : center;
+  display: block;
+}
+
+.main-area{
+  margin-top: 5em;
+  padding: 2em;
+  line-height: 1.5em;
+}
+
+.about, .additional-section{
+  background-color: #bf88d1;
+}
+
+/*back to top - end of page*/
+.back-to-top{
+  color:white;
+}
+.back-to-top:hover{
+  color: #3C224B;
+}
+
+
+/*makes it so the pieces break properly when the page size is changed*/
+#container {
+    margin: 0 auto;
+    max-width: 18000px; /* A really big width */
+}
+
+/*no idea how to use this still, but I love the concept of images moving at different times to create the effect*/
+.parallax {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/hero-image.png");
+  height: 50%;
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
