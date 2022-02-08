@@ -14,7 +14,7 @@ function storyFunction(choice) {
         document.getElementById("choice1").innerHTML = "Pick a flower";
         document.getElementById("choice2").innerHTML = "Skip around";
     } else if (choice == 2 && answer2 == "Wander aimlessly") {
-        document.getElementById("story").innerHTML = "You froze to death."  + "<br>Restart?";
+        document.getElementById("story").innerHTML = "It's a little too cold out. You freeze to death."  + "<br>Restart?";
         document.getElementById("choice1").innerHTML = "Restart";
         document.getElementById("choice2").innerHTML = "Quit";
     } else if (choice == 1 && answer1 == "Try the Doors") {
