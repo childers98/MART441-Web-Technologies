@@ -62,7 +62,7 @@ function storyFunction(choice) {
         document.getElementById("choice1").innerHTML = "Restart";
         document.getElementById("choice2").innerHTML = "Quit";
     } else if (choice == 1 && answer1 == "Offer him the flower") {
-        document.getElementById("story").innerHTML = "The fluffball seems to think that this was a sweet gesture.  He forgives you for picking one of his flowers." + "<br>Restart?";  //add a break so that restart appears on the next line
+        document.getElementById("story").innerHTML = "The fluffball thought that was a sweet gesture.  He forgives you for picking one of his flowers." + "<br>Restart?";  //add a break so that restart appears on the next line
         document.getElementById("choice1").innerHTML = "Restart";
         document.getElementById("choice2").innerHTML = "Quit";
     } else if (choice == 2 && answer2 == "XXXX") {
