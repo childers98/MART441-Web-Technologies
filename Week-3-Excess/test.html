@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <link rel="stylesheet" href="main.css">
+</head>
 <body>
 
-<h1>Choose Your Adventure</h1>
+<h1>Choose Your Own Adventure</h1>
+<img src="images/Happy-Spirit.png" height="219" width="155" class="center">
+<br>
 
-<p id="story">
+<dive id="story">
    A tiny spirit floats on his lonesome.  He's decided it's time to explore the world.  Where should he go?
-</p>
-
+</div>
+<br>
+<br>
 <!--why are the buttons not working??-->
   <button id="choice1" onclick="storyFunction(choice1);">The Woods</button>
   <button id="choice2" onclick="storyFunction(choice2);">Towards the Castle</button>
@@ -15,12 +21,12 @@
 
 <script>
 // document.getElementById("story").addEventListener;
-document.getElementById("choice1").addEventListener("click", storyFunction);
-document.getElementById("choice2").addEventListener("click", storyFunction);
+document.getElementById("choice1").addEventListener("click", storyFunction());
+document.getElementById("choice2").addEventListener("click", storyFunction());
 
 function storyFunction(choice) {
   //var to hold info, also allows it to be changed later on
-  // var choice;
+  //var choice;
   var answer1 = document.getElementById("choice1").innerHTML;
   var answer2 = document.getElementById("choice2").innerHTML;
   //change each element
@@ -87,7 +93,7 @@ function storyFunction(choice) {
     document.getElementById("choice1").innerHTML = "Restart";
     document.getElementById("choice2").innerHTML = "Quit";
   }
-  else if(choice == 2 && answer 2 == "Run away")
+  else if(choice == 2 && answer2 == "Run away")
   {
     document.getElementById("story").innerHTML = "You successfully escaped the fluffball.  That's enough adventuring for today.";
     document.getElementById("choice1").innerHTML = "Restart";
@@ -105,7 +111,7 @@ function storyFunction(choice) {
     document.getElementById("choice1").innerHTML = "Offer to help him replant";
     document.getElementById("choice2").innerHTML = "Ignore him";
   }
-  else if(choice == 2 && answer2 == Ignore him){
+  else if(choice == 2 && answer2 == "Ignore him"){
     document.getElementById("story").innerHTML = "The creatue spits acid at you.  You die."
     document.getElementById("choice1").innerHTML = "Restart";
     document.getElementById("choice2").innerHTML = "Quit";
