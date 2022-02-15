@@ -1,0 +1,360 @@
+<html>
+    <head>
+    </head>
+    <script>
+      //Draw or Garden
+        function getChoice1()
+        {
+            // var myImage = document.getElementById("image").value;
+            var myChoice = document.getElementById("choice").value;
+            var myQuestion = document.getElementById("question");
+            if(myChoice === "Rose")
+            {
+                //how to add images that change - just another getElementById
+                document.getElementById("mainImage").src = "images/pink-rose.jpeg"
+                document.getElementById("choice").style.display="none";
+                document.getElementById("btnSubmit").style.display="none";
+
+                document.getElementById("choice2").style.display="block";
+                document.getElementById("btnSubmit2").style.display="block";
+
+
+                myQuestion.innerHTML = "A rose.  Which color were you thinking?";
+            }
+            else if(myChoice === "Viola")
+            {
+                document.getElementById("choice").style.display="none";
+                document.getElementById("btnSubmit").style.display="none";
+
+                document.getElementById("choice6").style.display="block";
+                document.getElementById("btnSubmit6").style.display="block";
+                //this needs to be changed
+                myQuestion.innerHTML = "Oh a viola. What color would you like to plant?";
+
+            }
+            else
+            {
+                myQuestion.innerHTML = "Invalid answer";
+            }
+        }
+
+        //Color - Yellow or Pink
+        function getChoice2()
+        {
+            var answer = document.getElementById("choice2").value;
+            var myQuestion = document.getElementById("question");
+            if(answer === "Pink")
+            {
+                document.getElementById("mainImage").src = "images/pink.jpg";
+
+                document.getElementById("choice2").style.display="none";
+                document.getElementById("btnSubmit2").style.display="none";
+                //
+                document.getElementById("choice3").style.display="block";
+                document.getElementById("btnSubmit3").style.display="block";
+                //document.getElementById("btnSubmit3").style.display="none";
+                myQuestion.innerHTML = "Pink the color of elegance and sweetness!  They also symbolize grattitude. Now should we water it or fertilize it?";
+            }
+            else if(answer === "Yellow")
+            {
+                document.getElementById("mainImage").src = "images/yellow.jfif"
+
+                document.getElementById("choice2").style.display="none";
+                document.getElementById("btnSubmit2").style.display="none";
+
+                document.getElementById("choice3").style.display="block";
+                document.getElementById("btnSubmit3").style.display="block";
+                myQuestion.innerHTML = "Yellow! The color of friendship! Now should we water it or fertilize it?";
+            }
+            // else
+            // {
+            //     myQuestion.innerHTML = "Invalid answer";
+            // }
+        }
+
+        //Water or Ferilize
+        function getChoice3()
+        {
+            var answer = document.getElementById("choice2").value;
+            var myQuestion = document.getElementById("question");
+            // var myImage = document.getElementById("image");
+            if(answer === "Water")
+            {
+                document.getElementById("mainImage").src = "images/pink.png";
+                document.getElementById("choice3").style.display="none";
+                document.getElementById("btnSubmit3").style.display="none";
+
+                document.getElementById("choice4").style.display="block";
+                document.getElementById("btnSubmit4").style.display="block";
+                myQuestion.innerHTML = "Good choice.  Should we put it in the sunlight or the dark?";
+            }
+            else if(answer === "Fertilize")
+            {
+                //add image here
+                document.getElementById("choice3").style.display="none";
+                document.getElementById("btnSubmit3").style.display="none";
+
+              //Need the restart button choice
+                document.getElementById("choice8").style.display="block";
+                document.getElementById("btnSubmit8").style.display="block";
+                myQuestion.innerHTML = "Oops it looks like you may have killed your plant... Should we try again?";
+            }
+            // else
+            // {
+            //     myQuestion.innerHTML = "Invalid answer";
+            // }
+        }
+
+        //Sun and Dark
+        function getChoice4()
+        {
+            var answer = document.getElementById("choice4").value;
+            var myQuestion = document.getElementById("question");
+            // var myImage = document.getElementById("image");
+            if(answer === "Sun")
+            {
+                document.getElementById("mainImage").src = "images/pink.png";
+                document.getElementById("choice4").style.display="none";
+                document.getElementById("btnSubmit4").style.display="none";
+
+                document.getElementById("choice5").style.display="block";
+                document.getElementById("btnSubmit5").style.display="block";
+                //document.getElementById("choice").style.display="none";
+                myQuestion.innerHTML = "Your plant seems to have liked that and decided to grow! Would you like to keep it or give it away?";
+            }
+            else if(answer === "Dark")
+            {
+                document.getElementById("mainImage").src = "images/dead-plant.jpg";
+                document.getElementById("choice4").style.display="none";
+                document.getElementById("btnSubmit4").style.display="none";
+                //
+                document.getElementById("choice8").style.display="block";
+                document.getElementById("btnSubmit8").style.display="block";
+                myQuestion.innerHTML = "Looks like you killed it.  Restart?";
+            }
+            // else
+            // {
+            //     myQuestion.innerHTML = "Invalid answer";
+            // }
+        }
+
+        //Draw
+        function getChoice5()
+        {
+            var answer = document.getElementById("choice5").value;
+            var myQuestion = document.getElementById("question");
+            // var myImage = document.getElementById("image");
+            if(answer === "Keep")
+            {
+                //change image after a choice is selected
+                document.getElementById("mainImage").src = "images/pink.png";
+                document.getElementById("choice4").style.display="block";
+                document.getElementById("btnSubmit4").style.display="block";
+                myQuestion.innerHTML = "Ah a bone.  Spooky.  Which body part?";
+            }
+            else if(answer === "Give")
+            {
+                document.getElementById("mainImage").src = "images/tree.png";
+                myQuestion.innerHTML = "Yellow! The color of friendship!";
+            }
+            // else
+            // {
+            //     myQuestion.innerHTML = "Invalid answer";
+            // }
+        }
+
+        //Drawing Bones (Skull OR Dog Bone)
+        function choice6()
+        {
+            var answer = document.getElementById("choice6").value;
+            var myQuestion = document.getElementById("question");
+            // var myImage = document.getElementById("image");
+            if(answer === "Violet")
+            {
+                //change image after a choice is selected
+                document.getElementById("mainImage").src = "images/pink.png";
+                myQuestion.innerHTML = "Ooo cool and calm. Should we water it or fertilize it?";
+            }
+            else if(answer === "Red")
+            {
+                document.getElementById("mainImage").src = "images/tree.png";
+                myQuestion.innerHTML = "Very fiery I like it.  Should we water it or fertilize it?";
+            }
+            // else
+            // {
+            //     myQuestion.innerHTML = "Invalid answer";
+            // }
+        }
+
+        //(Yes OR No) to drawing the rest of the body
+        function choice8()
+        {
+            var answer = document.getElementById("choice8").value;
+            var myQuestion = document.getElementById("question");
+            // var myImage = document.getElementById("image");
+            if(answer === "Quit")
+            {
+                //change image after a choice is selected
+                document.getElementById("mainImage").src = "images/Happy-Spirit.png";
+                // document.getElementById("choice8").style.display="block";
+                // document.getElementById("btnSubmit8").style.display="block";
+                myQuestion.innerHTML = "Let's hang out again sometime!";
+            }
+            else if(answer === "Retry")
+            {
+                document.getElementById("mainImage").src = "images/tree.png";
+                // document.getElementById("choice8").style.display="block";
+                // document.getElementById("btnSubmit8").style.display="block";
+                myQuestion.innerHTML = "Umm...I think it died... Try again?";
+            }
+            // else
+            // {
+            //     myQuestion.innerHTML = "Invalid answer";
+            // }
+        }
+
+        //Draw the rest of the body(Still no OR Fine)
+        function choice7()
+        {
+            var answer = document.getElementById("choice7").value;
+            var myQuestion = document.getElementById("question");
+            // var myImage = document.getElementById("image");
+            if(answer === "Water")
+            {
+                //change image after a choice is selected
+                document.getElementById("mainImage").src = "images/pink.png";
+                myQuestion.innerHTML = "Alright the skull is probably good enough for now.  After all this is your first time.";
+            }
+            else if(answer === "Fertilize")
+            {
+                document.getElementById("mainImage").src = "images/tree.png";
+                myQuestion.innerHTML = "Alright! Now we can practice more shapes.";
+            }
+            // else
+            // {
+            //     myQuestion.innerHTML = "Invalid answer";
+            // }
+        }
+
+        //Which tree (Willow OR Aspen)
+        // function choice9()
+        // {
+        //     var answer = document.getElementById("choice9").value;
+        //     var myQuestion = document.getElementById("question");
+        //     // var myImage = document.getElementById("image");
+        //     if(answer === "Willow")
+        //     {
+        //         //change image after a choice is selected
+        //         document.getElementById("mainImage").src = "images/pink.png";
+        //         myQuestion.innerHTML = "Alright the skull is probably good enough for now.  After all this is your first time.";
+        //     }
+        //     else if(answer === "Aspen")
+        //     {
+        //         document.getElementById("mainImage").src = "images/tree.png";
+        //         myQuestion.innerHTML = "Alright! Now we can practice more shapes.";
+        //     }
+            // else
+            // {
+            //     myQuestion.innerHTML = "Invalid answer";
+            // }
+        // }
+
+
+
+
+
+//new stuff
+        // function getChoice4()
+        // {
+        //     //selecting the value from choice3
+        //     //idk what to put in here......
+        //     var answer = document.getElementById("choice3").value;
+        //     var myQuestion = document.getElementById("question");
+        //     if(answer === "yes")
+        //     {
+        //         document.getElementById("mainImage").src = "together.jpg"
+        //         myQuestion.innerHTML = "Thank you for your kindness!";
+        //     }
+        //     else if(answer === "no")
+        //     {
+        //         myQuestion.innerHTML = "Please remember we are all in this together.";
+        //     }
+
+        //     else
+        //     {
+        //         myQuestion.innerHTML = "Invalid answer";
+        //     }
+        // }
+        //
+        // function getChoice5()
+        // {
+        //     var answer = document.getElementById("choice3").value;
+        //     var myQuestion = document.getElementById("question");
+        //     if(answer === "yes")
+        //     {
+        //         document.getElementById("mainImage").src = "together.jpg"
+        //         myQuestion.innerHTML = "Thank you for your kindness!";
+        //     }
+        //     else if(answer === "no")
+        //     {
+        //         myQuestion.innerHTML = "Please remember we are all in this together.";
+        //     }
+        //     else
+        //     {
+        //         myQuestion.innerHTML = "Invalid answer";
+        //     }
+  //  }
+
+
+
+    </script>
+    <body>
+
+        <h1>Something New and Something Blue</h1>
+        <br>
+        <img src="images/Happy-Spirit.png" id="mainImage" alt="Blue Spirit that Paige drew." height="219" width="155">
+    <div id="question">
+    <br>
+        After your long adventure you are quite alright with not going out for awhile.
+        <br>
+        Let's try taking care of something living for a different kind of adventure.  Let's plant something!
+        <br>Hmm...seems like we have viola or rose seeds.  Which one?
+        <!-- <br>
+        He had only two choices.  It was Green or Blue. -->
+    </div>
+
+        <br>
+        <input type="text" size="30" id="choice" value="Enter Rose or Viola">
+        <button id="btnSubmit" onclick="getChoice1();">Continue</button>
+
+        <input type="text" size="30" id="choice2" value="Enter Yellow or Pink" style="display:none">
+        <button id="btnSubmit2" onclick="getChoice2();"  style="display:none">Continue</button>
+
+        <input type="text" size="30" id="choice3" value="Enter Water or Fertilize" style="display:none">
+        <button id="btnSubmit3" onclick="getChoice3();"  style="display:none">Continue</button>
+
+        <input type="text" size="30" id="choice4" value="Enter Sunlight or Dark"  style="display:none">
+        <button id="btnSubmit4" onclick="getChoice4();" style="display:none">Continue</button>
+
+        <input type="text" size="30" id="choice5" value="Enter Keep or Give" style="display:none">
+        <button id="btnSubmit5" onclick="getChoice5();"  style="display:none">Continue</button>
+
+        <input type="text" size="30" id="choice6" value="Enter Violet or Red" style="display:none">
+        <button id="btnSubmit6" onclick="getChoice6();"  style="display:none">Continue</button>
+
+        <input type="text" size="30" id="choice7" value="Enter Keep or Give" style="display:none">
+        <button id="btnSubmit7" onclick="getChoice7();"  style="display:none">Continue</button>
+
+
+        <!-- <input type="text" size="30" id="choice5" value="Enter Pink or Yellow" style="display:none">
+        <button id="btnSubmit5" onclick="getChoice5();"  style="display:none">Continue</button>
+
+        <input type="text" size="30" id="choice6" value="Enter Flower or Car" style="display:none">
+        <button id="btnSubmit4" onclick="getChoice4();"  style="display:none">Continue</button> -->
+        <!-- need to do two more buttons at least -->
+        <!-- <input type="text" size="30" id="choice4" value="Enter Rose or Viola" style="display:none">
+        <button id="btnSubmit4" onclick="getChoice4();"  style="display:none">Continue</button> -->
+
+    </body>
+
+</html>
