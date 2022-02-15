@@ -5,7 +5,8 @@
     </head>
     <script>
     //Would love to put this in a js file
-      //Draw or Garden
+    //While Loops?? - to restart the game?
+
         function getChoice1()
         {
             // var myImage = document.getElementById("image").value;
@@ -54,11 +55,16 @@
             var myQuestion = document.getElementById("question");
             if(answer === "Pink")
             {
+                //style different elements
+                document.getElementById("h1").style.color = "#C10087";
+            //think my style sheet is overriding this
+                //document.getElementById("btnSubmit").style.color = "#C10087";
+                //change images
                 document.getElementById("mainImage").src = "images/pink.jpg";
 
                 document.getElementById("choice2").style.display="none";
                 document.getElementById("btnSubmit2").style.display="none";
-                //
+
                 document.getElementById("choice3").style.display="block";
                 document.getElementById("btnSubmit3").style.display="block";
                 //document.getElementById("btnSubmit3").style.display="none";
@@ -66,7 +72,8 @@
             }
             else if(answer === "Yellow")
             {
-                document.getElementById("mainImage").src = "images/yellow.jfif"
+                document.getElementById("mainImage").src = "images/yellow.jfif";
+                document.getElementById("h1").style.color = "#E5EB2C";
 
                 document.getElementById("choice2").style.display="none";
                 document.getElementById("btnSubmit2").style.display="none";
@@ -89,7 +96,7 @@
             // var myImage = document.getElementById("image");
             if(answer === "Water")
             {
-                //document.getElementById("mainImage").src = "images/pink.png";
+                document.getElementById("mainImage").src = "images/watering-can.png";
                 document.getElementById("choice3").style.display="none";
                 document.getElementById("btnSubmit3").style.display="none";
 
@@ -123,7 +130,7 @@
             // var myImage = document.getElementById("image");
             if(answer === "Sun")
             {
-                document.getElementById("mainImage").src = "images/pink.png";
+                document.getElementById("mainImage").src = "images/sun.png";
                 document.getElementById("choice4").style.display="none";
                 document.getElementById("btnSubmit4").style.display="none";
 
@@ -179,17 +186,20 @@
         }
 
         //Viola Colors
+        //choice6 undefined???
         function getchoice6()
         {
             var answer = document.getElementById("choice6").value;
             var myQuestion = document.getElementById("question");
             // var myImage = document.getElementById("image");
-            if(answer === "Violet")
+            if(answer === "Purple")
             {
                 //change image after a choice is selected
                 document.getElementById("mainImage").src = "images/violet.jpg";
-                document.getElementById("choice3").style.display="none";
-                document.getElementById("btnSubmit3").style.display="none";
+                document.getElementById("h1").style.color = "#6C02B7";
+
+                document.getElementById("choice6").style.display="none";
+                document.getElementById("btnSubmit6").style.display="none";
 
                 document.getElementById("choice4").style.display="block";
                 document.getElementById("btnSubmit4").style.display="block";
@@ -198,8 +208,10 @@
             else if(answer === "Red")
             {
                 document.getElementById("mainImage").src = "images/red.png";
-                document.getElementById("choice2").style.display="none";
-                document.getElementById("btnSubmit2").style.display="none";
+                document.getElementById("h1").style.color = "#CF0A0A";
+
+                document.getElementById("choice6").style.display="none";
+                document.getElementById("btnSubmit6").style.display="none";
 
                 document.getElementById("choice3").style.display="block";
                 document.getElementById("btnSubmit3").style.display="block";
@@ -235,7 +247,7 @@
         //     // }
         // }
 
-        //Quit or Retry
+        //Quit or Retry - Restart from the beginning
         function getchoice8()
         {
             var answer = document.getElementById("choice8").value;
@@ -248,7 +260,7 @@
             }
             else if(answer === "Retry")
             {
-
+                document.getElementById("mainImage").src = "images/Happy-Spirit.png";
                 document.getElementById("choice8").style.display="none";
                 document.getElementById("btnSubmit8").style.display="none";
 
@@ -292,7 +304,7 @@
     </script>
     <body>
 
-        <h1>Garden and Repeat</h1>
+        <h1 id="h1">Garden and Repeat</h1>
         <br>
         <img src="images/Happy-Spirit.png" id="mainImage" alt="Blue Spirit that Paige drew." height="219" width="155">
     <div id="question">
@@ -315,13 +327,14 @@
         <input type="text" size="30" id="choice3" value="Enter Water or Fertilize" style="display:none">
         <button id="btnSubmit3" onclick="getChoice3();"  style="display:none">Continue</button>
 
-        <input type="text" size="30" id="choice4" value="Enter Sunlight or Dark"  style="display:none">
+        <input type="text" size="30" id="choice4" value="Enter Sun or Dark"  style="display:none">
         <button id="btnSubmit4" onclick="getChoice4();" style="display:none">Continue</button>
 
         <input type="text" size="30" id="choice5" value="Enter Keep or Give" style="display:none">
         <button id="btnSubmit5" onclick="getChoice5();"  style="display:none">Continue</button>
 
-        <input type="text" size="30" id="choice6" value="Enter Violet or Red" style="display:none">
+        <!-- getChoice6 is not defined at ButtonElement.onClick???? -->
+        <input type="text" size="30" id="choice6" value="Enter Purple or Red" style="display:none">
         <button id="btnSubmit6" onclick="getChoice6();"  style="display:none">Continue</button>
 
         <!-- <input type="text" size="30" id="choice7" value="Water" style="display:none">

@@ -1,6 +1,6 @@
 Homework #4
-At first this week went really well.  I have no idea what I did but some of my decisions are broken but there are no errors being reported in the console.
+At first this week went really well.  I have no idea what I did but some of my decisions don't work but don't show any errors in the console.  Others tell me they are undefined in areas where I'm pretty sure they are defined.  I also wasn't sure where exactly I should use loops with my code not quite working so I left those out.  Otherwise I think I was able to accomplish everything else.
 
-I thought it was fun to mess around with the variables more although I notice that these story games can get confusing especially when you try to make a bunch of different choices for the decisions.
+It was fun to mess with all of the decision making although it definitely gets confusing after awhile.
 
 Overall I think it was going fine until I got wayy too busy.  I'm hoping to continue updating this.
