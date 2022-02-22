@@ -25,6 +25,7 @@ function printBlanks()
 function createRandomImageArray()
 {
     //Array of actual images - 10
+    //changed this to capitals (.JPG) because someone said that would work in Github?, did not work
     var actualImagePath = ["images/angel.JPG", "images/angry.JPG", "images/barf.JPG", "images/love.JPG", "images/party.JPG", "images/please.JPG", "images/shh.JPG", "images/squint-tongue.JPG", "images/star.JPG", "images/zoink.JPG"];
     //technically was 13 so removed 3 images
     //Excess images
@@ -32,7 +33,7 @@ function createRandomImageArray()
 
 
     // create another array to make sure the images only get added twice
-//change the amount of zeroes here and more pictures showed up
+//changed the amount of zeroes here and more pictures showed up
     var count = [0,0,0,0,0,0,0,0,0,0];
     // create a while statement to check to see if our actual image array is full
 
