@@ -25,7 +25,7 @@ function printBlanks()
 function createRandomImageArray()
 {
     //Array of actual images - 10
-    var actualImagePath = ["images/angel.jpg", "images/angry.jpg", "images/barf.jpg", "images/love.jpg", "images/party.jpg", "images/please.jpg", "images/shh.jpg", "images/squint-tongue.jpg", "images/star.jpg", "images/zoink.jpg"];
+    var actualImagePath = ["images/angel.JPG", "images/angry.JPG", "images/barf.JPG", "images/love.JPG", "images/party.JPG", "images/please.JPG", "images/shh.JPG", "images/squint-tongue.JPG", "images/star.JPG", "images/zoink.JPG"];
     //technically was 13 so removed 3 images
     //Excess images
     //"images/broken-heart.jpg", "images/passion.jpg", "images/silly.jpg",
