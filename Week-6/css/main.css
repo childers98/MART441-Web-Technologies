@@ -1,0 +1,42 @@
+body{
+    background-color: #C1DBF5;
+}
+/* how in the world do I get the columns to be automatic */
+
+/* div {
+    column-width: 3;
+} */
+/* Creating spaces between the cards both ways maybe change this? */
+.divTable{
+	display: table; */
+	width: 25%;
+}
+/* .divTableRow {
+	display: table-row;
+} */
+/* .divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+} */
+/* how much space is inbetween the cells */
+.divTableCell, .divTableHead {
+  /* Add border back in? */
+  /* border: 1px solid #999999; */
+	display: table-cell;
+	padding: 3px 3px;
+}
+
+
+/* .divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+	font-weight: bold;
+} */
+/* .divTableFoot {
+	background-color: #EEE;
+	/* display: table-footer-group; */
+	/* font-weight: bold;
+} */
+/* .divTableBody {
+	display: table-row-group;
+} */

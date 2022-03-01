@@ -1,0 +1,3 @@
+This week went pretty well.  I only had a few little things like naming which showed up in the errors so they were easy to fix.  I actually think that the hardest thing was thinking of a game to turn digital.  The one thing that kept coming to mind is the "Never Have I Ever" style game.  I think that fits with the discussion theme.
+
+The only other struggle was with the columns.  In the end I didn't end up changing anything.  My columns are just really long and look a little ridiculous but the game works.  I also added a retry link at the end of my "end.html" so that they user could retry.  I just thought that would be a nice additional thing and also a chance to practice/remember how to link pages.
