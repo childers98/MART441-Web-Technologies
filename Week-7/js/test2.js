@@ -40,7 +40,7 @@ function initializeArray()
     var myViewFinder1 = new ViewFinder("Justice for Breonna Taylor", "Shirien Damra", "2020", "A symbol to show that Breonna Taylor could have been anyone one of us and that justice should be served on her behalf.", src="images/justice_for_breonna-Shirien_Damra.jpg");
     var myViewFinder2 = new ViewFinder("See the Ability in Disability", "Kunyog", "2016", "A piece depicting the judgement of the disabled that they are not capable of doing anything due to their limitations.", "images/see-the-ability_KUNYOG.jpg");
     var myViewFinder3 = new ViewFinder("Ahmaud", "Multiple Artists", "2020", "Graffiti artists worked tirelessly on this piece to put a face to the name in the headlines.  The building serves as a canvas for current events and artists reactions.", "images/ahmaud.jpg");
-    var myViewFinder4 = new ViewFinder("George Floyd Portrait", "Nikkolas Smith", "2020", "Paying tribute to the wrongful death of George Floyd", "src=images/stolen-adrian_brandon.jpg");
+    var myViewFinder4 = new ViewFinder("George Floyd Portrait", "Nikkolas Smith", "2020", "Paying tribute to the wrongful death of George Floyd", "src=images/george_floyd-nikkolas_smith.jpg");
 
     // add the first object to the array
     myViewFinderArray.push(myViewFinder);
@@ -60,5 +60,4 @@ function accessInformation()
     // get a random object from the array
     // calling the toString, but we could have gotten the property theTitle as well
     document.getElementById("title").innerHTML = myViewFinderArray[randomNumber].toString();
-
 }
