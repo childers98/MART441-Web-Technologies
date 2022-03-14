@@ -1,0 +1,45 @@
+#square {
+   width: 50px;
+   height: 50px;
+   background: blue;
+   /* where on the page the object is */
+   position: absolute;
+   left: 100;
+   top: 600;
+ }
+
+ #rectangle {
+    width: 100px;
+    height: 25px;
+    background: violet;
+    /* where on the page the object is */
+    position: absolute;
+    left: 100;
+    top: 600;
+  }
+
+  #long {
+    width: 70px;
+    height: 50px;
+    background: pink;
+    /* where on the page the object is */
+    position: absolute;
+    left: 100;
+    top: 600;
+  }
+
+
+
+ #third{
+   background: green;
+   color:white;
+ }
+
+ .stuff{
+   background: blue;
+   color:white;
+ }
+
+ body{
+     background-color: #E1CCE1;
+ }
