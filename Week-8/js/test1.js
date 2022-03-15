@@ -135,7 +135,7 @@ $(document).ready(function () {
 //doesn't work if the image one is running
 //change my word-rotate
 var words = ["cool.", "passion.", "hope.", "focus.", "peace."]; //put the orignal word at the end of the array so that it will look like it is repeating
-var number = 0;
+var number = 0; //changed count to number
 
 //stops changing after the button click???
 changeWord(); // Call the changeWord function
@@ -144,7 +144,7 @@ setInterval(changeWord, 2000); // Call it every 3 seconds
 function changeWord() {
 
     // Define the word to create
-    var current_word = words[count];
+    var current_word = words[number];
     console.log(current_word);
 
     // Change the word in the HTML
@@ -164,8 +164,8 @@ var imagePath = ["images/roses.jpg", "images/viola.jpg", "images/sunflower.jpg",
 var count = 0;
 
 changeImage(); // Call the changeWord function
-// setInterval(changeWord, 2000); // Call it every 3 seconds
-//
+setInterval(changeWord, 2000); // Call it every 3 seconds
+
 function changeImage() {
 
     // Define the word to create
