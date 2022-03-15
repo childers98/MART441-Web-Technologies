@@ -1,4 +1,4 @@
-var flowerSelector = "#flower";
+var flowerSelector = "#flower";//id
 var allFlowers = new Array();
 class FlowerInfo{
     constructor(selector, imagePath)
@@ -10,11 +10,9 @@ class FlowerInfo{
     get theSelector(){
         return this.selector;
     }
-
     get theImagePath(){
         return this.imagePath;
     }
-
     toString()
     {
         return this.selector + ":" + this.imagePath;
@@ -23,14 +21,13 @@ class FlowerInfo{
 
 function initializeArray()
 {
-
+    //make new objects for the array with id of flower and image src
     var tulip = new FlowerInfo("#flower", "images/tulip.jpg");
-    //changed #s to the flower name
-    var viola = new FlowerInfo("#voila", "images/viola.jpg");
-    var roses = new FlowerInfo("#roses", "images/roses.jpg");
-    var sunflower = new FlowerInfo("#sunflower", "images/sunflower.jfif")
+    var viola = new FlowerInfo("#flower", "images/viola.jpg");
+    var roses = new FlowerInfo("#flower", "images/roses.jpg");
+    var sunflower = new FlowerInfo("#flower", "images/sunflower.jpg")
+    //allFlowers.push(flower);
     allFlowers.push(tulip, viola, roses, sunflower);
-    //allFlowers.push(, viola, roses, sunflower);
 
 }
 $(document).ready(function(){
@@ -51,28 +48,28 @@ $(document).ready(function(){
     $("button").click(function(){
 
         $(".stuff").fadeOut();//for the quotes
-
-
-
-        $("#third").toggle(); //turns it off and then on
+        $("#bright").toggle(); //turns it off and then on
           //when the shapes start moving
            setInterval(moveSquare, 1000);
            setInterval(moveRectangle, 1000);
            setInterval(moveLong, 500);
+           setInterval(moveMini, 500);
 
-           //this doesn't work either
-        $(allFlowers[0].theSelector).fadeOut().fadeTo("src", allFlowers[1].theImagePath).fadeIn();
+        //make the images fade in and out
+        $(allFlowers[0].theSelector).fadeOut().fadeIn();
 
         //changing the image - https://www.tutorialrepublic.com/faq/how-to-change-the-image-source-using-jquery.php#:~:text=Answer%3A%20Use%20the%20jQuery%20attr,you%20clicks%20on%20the%20image.
         $(document).ready(function(){
             $("flower").click(function(){
                 // Change src attribute of image
-                $(this).attr("src", "images/viola.jpg");
+                $(this).attr("src", "secoind.jpg");
             });
         });
 
 
-
+        //change the images
+        // var imagePath = ["images/roses.jpg", "images/viola.jpg", "images/sunflower.jpg", "images/tulip.jpg", "images/red-poppy.jpg"]; //put the orignal word at the end of the array so that it will look like it is repeating
+        // var count = 0;
 
 
         //maybe use fadeTo
@@ -99,28 +96,36 @@ $(document).ready(function(){
 
 });
 
-//3 moving shapes
+//4 moving shapes
 function moveSquare()
 {
-    //this one stays on the screen w/ no fade functions
-    $("#square").animate({left:250}).animate({top:400}).animate({left:0}).animate({top:300});
+    $("#mini-square").delay(150).fadeIn();
+    $("#square").animate({left:300}).animate({top:400}).animate({left:20}).animate({top:200});
+    $("#square").delay(15).fadeOut();
 
+}
+
+function moveMini()
+{
+    //this one stays on the screen w/ no fade functions
+    $("#mini-square").delay(1425).fadeIn();
+    $("#mini-square").animate({left:1500}).animate({top:400}).animate({left:500}).animate({top:200});
+    $("#mini-square").delay(1425).fadeOut();
 }
 
 function moveRectangle()
 {
+    $("#mini-square").fadeIn();
     $("#rectangle").animate({left:300}).animate({top:400}).animate({left:0}).animate({top:350});
     $("#rectangle").delay(425).fadeOut();
-    //other option for fade that I didn't try
-    // setTimeout(function(){$("div").fadeOut(300);},1000);
 }
 
 function moveLong()
 {
   //repeats through this
   $("#long").delay(425).fadeIn();
-  $("#long").animate({left:250}).animate({top:400}).animate({left:0}).animate({top:300});
-  $("#long").delay(425).fadeOut();
+  $("#long").animate({left:250}).animate({top:400}).animate({left:0}).animate({bottom:300});
+  $("#long").delay(500).fadeOut();
 }
 
 //change the text of my first quote
@@ -130,9 +135,6 @@ $(document).ready(function () {
     });
 });
 
-
-
-//doesn't work if the image one is running
 //change my word-rotate
 var words = ["cool.", "passion.", "hope.", "focus.", "peace."]; //put the orignal word at the end of the array so that it will look like it is repeating
 var number = 0; //changed count to number
@@ -143,7 +145,6 @@ setInterval(changeWord, 2000); // Call it every 3 seconds
 
 function changeWord() {
 
-    // Define the word to create
     var current_word = words[number];
     console.log(current_word);
 
@@ -155,29 +156,4 @@ function changeWord() {
 
     // If we've reached the end of the word list, go back to the start
     if (number == words.length) { number = 0; }
-}
-
-
-//if this one is active renders the one above useless
-//change the images
-var imagePath = ["images/roses.jpg", "images/viola.jpg", "images/sunflower.jpg", "images/tulip.jpg", "images/red-poppy.jpg"]; //put the orignal word at the end of the array so that it will look like it is repeating
-var count = 0;
-
-changeImage(); // Call the changeWord function
-setInterval(changeWord, 2000); // Call it every 3 seconds
-
-function changeImage() {
-
-    // Define the word to create
-    var current_image = imagePath[count];
-    console.log(current_imagePath);
-
-    // Change the word in the HTML
-    $("#flower").html(current_imagePath);
-
-    // Get the next word index in the array
-    count++;
-
-    // If we've reached the end of the word list, go back to the start
-    if (count == imagePath.length) { count = 0; }
 }

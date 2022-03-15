@@ -4,8 +4,17 @@
    background: blue;
    /* where on the page the object is */
    position: absolute;
-   left: 100;
-   top: 600;
+   left: 50;
+   top: 700;
+ }
+
+ #mini-square{
+   width: 25px;
+   height: 25px;
+   background: black;
+   position: absolute;
+   left: 200;
+   right: 300;
  }
 
  #rectangle {
@@ -14,8 +23,8 @@
     background: violet;
     /* where on the page the object is */
     position: absolute;
-    left: 100;
-    top: 600;
+    left: 700;
+    top: 500;
   }
 
   #long {
@@ -30,7 +39,7 @@
 
 
 
- #third{
+ #bright{
    background: #EA4BEA;
    color:white;
  }
