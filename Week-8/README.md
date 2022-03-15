@@ -1,5 +1,5 @@
 How did it go?
-I think it went alright some of the aspects were confusing to me.  Images are really confusing me lately.  My quotes are changing and my shapes are moving (hopefully there is enough of those aspects).
+I think it went alright some of the aspects were confusing to me.  Images were the main thing that I spent the most time on, which was also the case last week.  My quotes are changing and my shapes are moving (hopefully there is enough of those aspects).  Those elements made more sense to me.  You chose something to update or turn on and off based off of the button click event.  I'm not sure how I feel about jQuery as it seems simple but some of the aspects I have a hard time grasping exactly how they work.
 
 
 
