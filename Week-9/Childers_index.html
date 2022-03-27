@@ -2,28 +2,49 @@
 <html>
 
 <head>
+  <script src="js/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+  <!-- jQuery plug-in "Snowfall" to represent meteorites falling - https://workshop.rs/2012/01/jquery-snow-falling-plugin/ -->
+  <script src="jquery.snow.js"></script>
+  <!-- Colors change while scrolling - https://www.jquery-az.com/jquery/demo.php?ex=97.0_1 -->
+  <!-- Scrolling Horizontially - https://www.queness.com/post/356/create-a-vertical-horizontal-and-diagonal-sliding-content-website-with-jquery -->
+
     <script>
 
-        function showBikeInfo() {
+        function showmeteoriteInfo() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                var bike = JSON.parse(this.responseText);
-                document.getElementById("bikeInformation").innerHTML = "Manufacturer: " + bike.manufacturer
-                + "<br>Model:" + bike.model + "<br>First Name:" + bike.owner.firstName + "<br>Last Name:"
-                + bike.owner.lastName + "<br>Sizes Available:<br>" +
-                bike.sizes[0] + "<br>" + bike.sizes[1] + "<br>" + bike.sizes[2] + "<br>" + bike.sizes[3];
+                var meteorite = JSON.parse(this.responseText);
+                document.getElementById("meteoriteInformation").innerHTML = "Name: " + meteorite.name
+                + "<br>Id:" + meteorite.model + "<br>Name Type:" + meteorite.nametype + "<br>Recclass:"
+                + meteorite.recclass + "<br>Mass:" + meteorite.mass + "<br>Fall:" + meteorite.fall
+                + "<br>Year:" + meteorite.year + "<br>Reclat:" + meteorite.reclat + "<br>Reclong:" + meteorite.reclong
+                + "<br>Geolocation:" + meteorite.geolocation.type + meteorite.geolocation.coordinates;
                 }
             };
-            xhttp.open("GET", "bike.json", true);
+            //gets and opens the json data file
+            //thought this was set up as an HTTPs URL file???
+            //Error CORS request not http - https://docs.w3cub.com/http/cors/errors/corsrequestnothttp
+            xhttp.open("GET", "meteorite.json", true); //watch for spelling
             xhttp.send();
         }
+
+        //Snowfall??
+        // $(document).ready( function(){
+        //     $.fn.snow();
+        // });
+        //pass in parameters - carefull with the newOn as it can affect performance
+        // $.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#0099FF' });
+
+
+
 </script>
 
     </head>
 
     <body>
-        <div id="bikeInformation"></div>
-        <button id="btnSubmit" onclick="showBikeInfo();">Show Information</button>
+        <div id="meteoriteInformation"></div>
+        <button id="btnSubmit" onclick="showmeteoriteInfo();">Show Information</button>
     </body>
 </html>
