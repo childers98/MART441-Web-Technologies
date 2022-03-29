@@ -1,4 +1,3 @@
-
  $(document).ready(function () {
             $("button").click(function () {
                 $("#meteoriteInformation").load("data/meteorite.json", function(responseText){

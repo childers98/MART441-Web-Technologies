@@ -11,6 +11,15 @@
   <!-- Scrolling Horizontially - https://www.queness.com/post/356/create-a-vertical-horizontal-and-diagonal-sliding-content-website-with-jquery -->
 
     <script>
+    $("button").click(function(){
+      //used to get JSON data using ajax http get request
+      $.getJSON("jsonajax.js", function(result){ //jsonajax or ajax?
+          $.each(result, function(i, field){
+            $("div").append(field + " ");
+          });
+        });
+      });
+
 
         function showmeteoriteInfo() {
             var xhttp = new XMLHttpRequest();
@@ -37,11 +46,8 @@
         //show data in meaningful way - https://stackoverflow.com/questions/51153022/how-read-a-json-file-with-coordinate-and-plot-them-in-a-map
         //should I try to display this on a map? think it would make the data more clear
 
-
         //plot all of the coordinates in javascript - https://gis.stackexchange.com/questions/313960/how-do-i-implement-a-json-file-with-coordinates-into-a-var-with-featurecollectio
-
-
-
+        //GeoJSON?
 
 
 
@@ -53,8 +59,22 @@
         //pass in parameters - carefull with the newOn as it can affect performance, could also change the color
         //would be cool to do circles instead of snowflakes
         // $.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#0099FF' });
+        //link to the button click
 
-
+        //CLASS EXAMPLE
+        //needs some css elements
+        // $.fn.bluey = function () {
+        //     this.css("background-color", "blue");
+        //     this.css("color", "white");
+        //     this.css("font-size", 24);
+        // };
+        //
+        // $(function () {
+        //     $("button").click(function () {
+        //         $("#changeDiv").bluey();
+        //     });
+        //
+        // });
 
 </script>
 
