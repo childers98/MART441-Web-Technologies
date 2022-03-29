@@ -16,9 +16,7 @@ let meteorite = {
                  "type":"Point",
                  "coordinates":[6.08333,50.775]}
                }
-               //this would've also given a great visual of how the data is supposed to be written out
-               //do I need to put data = '[{"name" : etc}]' before the data in my json file - https://stackoverflow.com/questions/19706046/how-to-read-an-external-local-json-file-in-javascript
-               //looks like yes?
+               //this would've also given a great visual of how the data is supposed to be written out (good reference for the future) - http://json.parser.online.fr/
 
        //$ not defined? took off of $(function) to fix
        (function () {
@@ -28,11 +26,11 @@ let meteorite = {
 
        });
 
-       //think this is correct....
+       //should pull data
        function showmeteoriteInfo()
            {
                $("#meteoriteInformation").html("Name: " + meteorite.name
-               + "<br>Id:" + meteorite.model + "<br>Name Type:" + meteorite.nametype + "<br>Recclass:"
+               + "<br>Id:" + meteorite.id + "<br>Name Type:" + meteorite.nametype + "<br>Recclass:"
                + meteorite.recclass + "<br>Mass:" + meteorite.mass + "<br>Fall:" + meteorite.fall
                + "<br>Year:" + meteorite.year + "<br>Reclat:" + meteorite.reclat + "<br>Reclong:" + meteorite.reclong
                + "<br>Geolocation:" + meteorite.geolocation.type + meteorite.geolocation.coordinates);

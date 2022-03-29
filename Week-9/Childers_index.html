@@ -3,6 +3,7 @@
 
 <head>
   <script src="js/main.js"></script>
+  <link href="css/main.css" type="text/css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
   <!-- jQuery plug-in "Snowfall" to represent meteorites falling - https://workshop.rs/2012/01/jquery-snow-falling-plugin/ -->
   <script src="jquery.snow.js"></script>
@@ -14,10 +15,13 @@
         function showmeteoriteInfo() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
+              //readyState == 4 means the request is finished and response is ready
+              //status == 200 "OK"
+              //When readyState is 4 and status is 200, the response is ready:
                 if (this.readyState == 4 && this.status == 200) {
                 var meteorite = JSON.parse(this.responseText);
                 document.getElementById("meteoriteInformation").innerHTML = "Name: " + meteorite.name
-                + "<br>Id:" + meteorite.model + "<br>Name Type:" + meteorite.nametype + "<br>Recclass:"
+                + "<br>Id:" + meteorite.id + "<br>Name Type:" + meteorite.nametype + "<br>Recclass:"
                 + meteorite.recclass + "<br>Mass:" + meteorite.mass + "<br>Fall:" + meteorite.fall
                 + "<br>Year:" + meteorite.year + "<br>Reclat:" + meteorite.reclat + "<br>Reclong:" + meteorite.reclong
                 + "<br>Geolocation:" + meteorite.geolocation.type + meteorite.geolocation.coordinates;
@@ -26,15 +30,28 @@
             //gets and opens the json data file
             //thought this was set up as an HTTPs URL file???
             //Error CORS request not http - https://docs.w3cub.com/http/cors/errors/corsrequestnothttp
-            xhttp.open("GET", "meteorite.json", true); //watch for spelling
+            xhttp.open("GET", "meteorite.json", true); //watch for spelling on meteorite
             xhttp.send();
         }
 
+        //show data in meaningful way - https://stackoverflow.com/questions/51153022/how-read-a-json-file-with-coordinate-and-plot-them-in-a-map
+        //should I try to display this on a map? think it would make the data more clear
+
+
+        //plot all of the coordinates in javascript - https://gis.stackexchange.com/questions/313960/how-do-i-implement-a-json-file-with-coordinates-into-a-var-with-featurecollectio
+
+
+
+
+
+
+      //jQuery plug-in options to apply to data
         //Snowfall??
         // $(document).ready( function(){
         //     $.fn.snow();
         // });
-        //pass in parameters - carefull with the newOn as it can affect performance
+        //pass in parameters - carefull with the newOn as it can affect performance, could also change the color
+        //would be cool to do circles instead of snowflakes
         // $.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#0099FF' });
 
 
