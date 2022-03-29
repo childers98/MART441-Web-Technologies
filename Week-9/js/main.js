@@ -3,6 +3,7 @@
 //AJAX prevents the white screen of nothing
 //this should demonstrate what should be being pulled in from the JSON file
 let meteorite = {
+               //why is this being called a function?
                "name" : "Aachen",
                "id" : "1",
                "nametype" : "Valid",
