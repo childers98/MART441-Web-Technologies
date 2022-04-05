@@ -136,6 +136,7 @@ function hasCollided(object1, object2, object3, obejct4) {
         ((object1.x + object1.width) < object2.x) ||
         (object1.x > (object2.x + object2.width))
 
+        //wow this is
         ((object1.y + object1.height) < (canvas.height-15))
 
         //not working how I thought it would

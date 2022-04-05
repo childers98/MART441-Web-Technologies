@@ -1,6 +1,6 @@
 
 8. Objects cannot leave the canvas edges - add collider
-9. Embed some background music
+Needs to collide with orange and red...
 
 How Did It Go?
 Still not done!!
@@ -14,3 +14,4 @@ Homework
 5. One object should move autonomously (by itself) - 2 move by themselves
 6. The background should change if they collide (also make the border change color?)
 7. The objects should change size if they collide - all 4 change sizes but only when the first square hits the second
+9. Embed some background music
