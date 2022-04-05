@@ -1,9 +1,8 @@
 
-8. Objects cannot leave the canvas edges - add collider
-Needs to collide with orange and red...
+8. Objects cannot leave the canvas edges - add collider... hmmm
+Also should collide with orange and red...
 
 How Did It Go?
-Still not done!!
 I think this week went pretty well I only had trouble with the border collider.  I looked online and tried some things from there but that only confused me more.  I then started looking at previous coding things and still couldn't figure it out.  Otherwise it felt like a lot of stuff I knew and sort of remembered.
 
 Homework
