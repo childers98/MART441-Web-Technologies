@@ -72,9 +72,9 @@ $(document).ready(function () {
 // this function checks which key was pressed
 function getKey(event) {
 
-    // only checking collision when a key is pressed
+    //check for collison when key pressed
     var didCollide = hasCollided(square1, square2, square3, square4); //added colliders for the 3rd and 4th square
-    // if a collision happens
+    //when collision happens
     if (didCollide) {
         // change the background color
 
@@ -107,8 +107,15 @@ function getKey(event) {
     drawSquare(); //have to draw the squares again
 }
 
+// function moveUp() {
+//     if(square1.theY !== 0){ //if(square1.theY !== (canvas.height-15))
+//       square1.setY(square1.theY - 10); //move upwards aka change the y
+//     } else {
+//       //do nothing
+//     }
+// }
 function moveUp() {
-    square1.setY(square1.theY - 10); //move upwards aka change the y
+  square1.setY(square1.theY - 10);//move upwards aka change the y
 }
 function moveDown() {
     square1.setY(square1.theY + 10); //move down by adding to the y
@@ -123,12 +130,15 @@ function moveRight() {
 // this is a basic collision function that checks for corners overlapping
 function hasCollided(object1, object2, object3, obejct4) {
     return !(
-        //maroon
+        //maroon and plum
         ((object1.y + object1.height) < (object2.y)) ||
         (object1.y > (object2.y + object2.height)) ||
         ((object1.x + object1.width) < object2.x) ||
         (object1.x > (object2.x + object2.width))
 
+        ((object1.y + object1.height) < (canvas.height-15))
+
+        //not working how I thought it would
         // //orange
         // ((object1.y + object1.height) < (object3.y)) ||
         // (object1.y > (object3.y + object3.height)) ||
@@ -143,15 +153,44 @@ function hasCollided(object1, object2, object3, obejct4) {
     );
 }
 
-function borderCollided(object1, object2, object3){
-  return !(
-    object1 > (canvas.height-15 || canvas.height+15)
-      // ((object1.y + object1.height) < (canvas.height-15)) ||
-      // (object1.y > (canvas.height-15)) ||
-      // ((object1.x + object1.width) < canvas.width-15) ||
-      // (object1.x > (canvas.width-15))
-    )
-  }
 
-  // canvas.width
-  // canvas.height
+//border collision
+if (square1 > canvas.width-15)
+{
+  square1.x = canvas.width-15;
+}
+if(square1 < 0)
+{
+  square1.x = 0;
+}
+if(square1 > canvas.height-15)
+{
+  square1.y = canvas.height-15;
+}
+
+
+// function borderCollided(object1, object2, object3){
+//   return !(
+//     (object1 || (canvas.height))
+//     // (object1 > (canvas.height+15))
+//     // (object1 < (canvas.width-15))
+//     // (object1 > (canvas.width+15))
+//
+//       // ((object1.y + object1.height) < (canvas.height-15)) ||
+//       // (object1.y > (canvas.height-15)) ||
+//       // ((object1.x + object1.width) < canvas.width-15) ||
+//       // (object1.x > (canvas.width-15))
+//     )
+//   }
+//
+//   var hitBorder = borderCollided(square1, square2, square3); //added colliders for the 3rd and 4th square
+//
+//   // canvas.width
+//   // canvas.height
+//
+//   if (hitBorder) {
+//     square1.setY(square1.theY - 15)
+//     square1.setX(square1.theX - 10)
+//
+//
+//   }
