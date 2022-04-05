@@ -1,0 +1,21 @@
+#myCanvas {
+  background-color: #F9FEBB;
+  border: #FFC300;
+  border-style: solid;
+  border-width: 15px; //change?
+}
+
+body {
+  background-color: #581845;
+}
+
+
+/*
+Dark Purple - #581845
+Maroonish - #900C3F
+Redish Maroon - #C70039
+Red Orange - #FF5733
+Yellow Orange - #FFC300
+pastel lime yellow - #DAF7A6
+pastel yellow - F9FEBB
+*/
