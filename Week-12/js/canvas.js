@@ -41,20 +41,19 @@ function setup()
 
     //add collectibles...not appearing...
     //does this need to be placed elsewhere
-    collectibles1 = new Collectibles(10,10,20,20,"#FFFF37");//maybe make this color orange
-    collectibles2 = new Collectibles(5,450,20,20,"#FFFF37");
-
+    // collectibles1 = new Collectibles(10,10,20,20,"#FFFF37");//maybe make this color orange
+    // collectibles2 = new Collectibles(5,450,20,20,"#FFFF37");
 //also making the green square not move... maybe change the i to a different letter
 //or the drawSquare to drawCollectibles
       //array for collectibles
-    $.getJSON("data/collectibles.json", function(data) {
-        for(var j = 0; j < data.collectibles.length; j++)
-        {
-            collectiblesArray.push(new Collectibles(data.collectibles[j].x,data.collectibles[j].y, data.collectibles[j].h, data.collectibles[j].w, data.collectibles[j].color));
-        }
-        //drawCollectibles();
-        drawSquare();
-    });
+    // $.getJSON("data/collectibles.json", function(data) {
+    //     for(var j = 0; j < data.collectibles.length; j++)
+    //     {
+    //         collectiblesArray.push(new Collectibles(data.collectibles[j].x,data.collectibles[j].y, data.collectibles[j].h, data.collectibles[j].w, data.collectibles[j].color));
+    //     }
+    //     //drawCollectibles();
+    //     drawSquare();
+    // });
 }
 
 
@@ -150,8 +149,8 @@ for(var i = 0; i < collectiblesArray.length; i++)
   {
 
     {
-      collectibles++;//check this name
-      setCollectible.SetActive(false); //I don't think this is right
+      collectibles++;
+      setCollectibles[i].SetActive(false); //Is this alright
     }
       //console.log(test2);
    }
@@ -192,16 +191,16 @@ function drawSquare()
         ctx.fillRect(squareArray[i].x, squareArray[i].y, squareArray[i].width, squareArray[i].height);
     }
 //why does the text go away when added?
-    ctx.fillStyle = collectibles1.mainColor;
-    ctx.fillRect(collectibles1.x, collectibles1.y, collectibles1.width, collectibles1.height);
-    ctx.fillStyle = collectibles2.mainColor;
-    ctx.fillRect(collectibles2.x, collectibles2.y, collectibles2.width, collectibles2.height);
-    //added - do i need to add the other things
-    for(var j = 0; j < collectiblesArray.length; j++) //chaged to i to j
-    {
-        ctx.fillStyle = collectiblesArray[j].mainColor;
-        ctx.fillRect(collectiblesArray[j].x, collectiblesArray[j].y, collectiblesArray[j].width, collectiblesArray[j].height);
-    }
+    // ctx.fillStyle = collectibles1.mainColor;
+    // ctx.fillRect(collectibles1.x, collectibles1.y, collectibles1.width, collectibles1.height);
+    // ctx.fillStyle = collectibles2.mainColor;
+    // ctx.fillRect(collectibles2.x, collectibles2.y, collectibles2.width, collectibles2.height);
+    // //added - do i need to add the other things
+    // for(var j = 0; j < collectiblesArray.length; j++) //chaged to i to j
+    // {
+    //     ctx.fillStyle = collectiblesArray[j].mainColor;
+    //     ctx.fillRect(collectiblesArray[j].x, collectiblesArray[j].y, collectiblesArray[j].width, collectiblesArray[j].height);
+    // }
 
 //this is no longer showing up???
     ctx.font = "30px Arial"; //font of the lives counter

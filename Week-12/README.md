@@ -2,7 +2,9 @@
 
 
 How'd it go?
-This week was a struggle for me.  There were just little things that I didn't catch or couldn't quite figure out why they were broken.  Again I think I understand a lot of the content just not exactly how it all fits together to work.
+This week was a struggle for me.  Not only was it just really busy but there were just little things that I didn't catch or couldn't quite figure out within my code.  Again I think I understand a lot of the content just not exactly how it all fits together to work.
+
+My player (aka the green square) quits moving when adding the collectible elements.  Collectibles were the only thing that I couldn't get to appear on the canvas.  I commented the elements that made other elements disappear so that the basic functionality was there with the rest of the items.
 
 
 Homework Finished
