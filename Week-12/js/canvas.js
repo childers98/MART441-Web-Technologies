@@ -11,6 +11,8 @@ var squareArray = [];
 var collectiblesArray = []; //added
 var lives = 5;  //how many Lives
 var collectibles = 0; //zero to start and add to
+
+
 $(document).ready(function(){
     setup();
     $(this).keypress(function(event){
@@ -38,6 +40,7 @@ function setup()
     });
 
     //add collectibles...not appearing...
+    //does this need to be placed elsewhere
     collectibles1 = new Collectibles(10,10,20,20,"#FFFF37");//maybe make this color orange
     collectibles2 = new Collectibles(5,450,20,20,"#FFFF37");
 
@@ -49,8 +52,8 @@ function setup()
         {
             collectiblesArray.push(new Collectibles(data.collectibles[j].x,data.collectibles[j].y, data.collectibles[j].h, data.collectibles[j].w, data.collectibles[j].color));
         }
-        drawCollectibles();
-        //drawSquare();
+        //drawCollectibles();
+        drawSquare();
     });
 }
 
@@ -89,7 +92,7 @@ function getKey(event)
         test2 = hasCollided(square1,squareArray[i]); //checks to see if square1 has run into any other squares
         if(test2 == true)
         {
-            break;
+            break; //stop movement if running into object
         }
         //console.log(test2);
     }
@@ -116,16 +119,14 @@ function getKey(event)
     drawSquare();
 }
 
-
-
 //collectibles functions
-var test3 = collectibleCollide(collectibles1, collectibles2);
+var test3 = collectibleCollide(square1, collectibles1); //square1 colliding with one of the collectibles
 var test4 = false;
 
 for(var i = 0; i < collectiblesArray.length; i++)
 {
   {
-    test4 = collectibleCollide(collectible1, collectiblesArray[i]);
+    test4 = collectibleCollide(square1, collectiblesArray[i]);
     if(test4 == false)
       {
         if(direction == "left")
@@ -145,16 +146,16 @@ for(var i = 0; i < collectiblesArray.length; i++)
             moveUp();
         }
       }
-if(test3 || test4)
-{
-
+  if(test3 || test4)
   {
-    collectibles++;//check this name
-    setCollectible.SetActive(false); //I don't think this is right
+
+    {
+      collectibles++;//check this name
+      setCollectible.SetActive(false); //I don't think this is right
+    }
+      //console.log(test2);
+   }
   }
-    //console.log(test2);
- }
-}
 drawSquare();
 }
 
@@ -202,25 +203,14 @@ function drawSquare()
         ctx.fillRect(collectiblesArray[j].x, collectiblesArray[j].y, collectiblesArray[j].width, collectiblesArray[j].height);
     }
 
+//this is no longer showing up???
     ctx.font = "30px Arial"; //font of the lives counter
     ctx.fillText("Lives: " + lives, 10, 35); //last two numbers are the coordinates
 
     ctx.font = "30px Arial"; //font for collectible counter
     ctx.fillText("Collectibles: " + collectibles, 10, 65); //put it below the lives counter
-
-
   }
 
-
-
-
-//added
-// function drawCollectibles()
-// {
-//     ctx.clearRect(0,0,500,500);
-//     ctx.fillStyle
-//
-// }
 
 //works for all of the squares
 function hasCollided(object1, object2) {
@@ -230,7 +220,8 @@ function hasCollided(object1, object2) {
         ((object1.x + object1.width) < object2.x) ||
         (object1.x > (object2.x + object2.width))
     );
-//collectibles colliding
+
+//collectibles colliding...collectibles not appearing so I'm not sure if this is working
   function collectibleCollided(collectibles1, collectibles2) {
     return !(
         ((object1.y + object1.height) < (object2.y)) ||
@@ -238,4 +229,6 @@ function hasCollided(object1, object2) {
         ((object1.x + object1.width) < object2.x) ||
         (object1.x > (object2.x + object2.width))
     );
+}
+
 }
