@@ -1,6 +1,3 @@
-2. Create a class for your objects in the JSON file
-
-
 How'd it go?
 This week was a struggle for me.  Not only was it just really busy but there were just little things that I didn't catch or couldn't quite figure out within my code.  Again I think I understand a lot of the content just not exactly how it all fits together to work.
 
@@ -14,6 +11,7 @@ Homework Finished
     -light blue square
     -light blue purple
     -light pink purple
+2. Create a class for your objects in the JSON file
 3. Add all objects to the array - do I need to add the squares that are the main ones?
 4. Create an object for your player and make sure it can move with the arrow keys - green player
 5. Make sure the player cannot collide with any of the objects on the canvas - can't collide with squares(will lose lives)

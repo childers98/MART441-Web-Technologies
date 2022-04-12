@@ -191,6 +191,7 @@ function drawSquare()
         ctx.fillRect(squareArray[i].x, squareArray[i].y, squareArray[i].width, squareArray[i].height);
     }
 //why does the text go away when added?
+//changed i to j....
     // ctx.fillStyle = collectibles1.mainColor;
     // ctx.fillRect(collectibles1.x, collectibles1.y, collectibles1.width, collectibles1.height);
     // ctx.fillStyle = collectibles2.mainColor;
@@ -221,7 +222,7 @@ function hasCollided(object1, object2) {
     );
 
 //collectibles colliding...collectibles not appearing so I'm not sure if this is working
-  function collectibleCollided(collectibles1, collectibles2) {
+  function collectibleCollided(square1, collectibles1) {
     return !(
         ((object1.y + object1.height) < (object2.y)) ||
         (object1.y > (object2.y + object2.height)) ||
