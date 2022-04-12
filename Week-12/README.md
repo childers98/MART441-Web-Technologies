@@ -7,7 +7,7 @@
 7. Create objects from each entry in the file…???
 8. Create a new array for each of these objects
 9. Make sure when the player collides with those objects, they are collected, and the collectibles disappear (might want to look at that game we made in my other class)
-10. Show an increase in the score when picking up a collectible
+
 
 
 How'd it go?
@@ -23,3 +23,7 @@ Homework Finished
 3. Add all objects to the array - do I need to add the squares that are the main ones?
 4. Create an object for your player and make sure it can move with the arrow keys - green player
 6. Create another json file with at least three objects in it - collectibles.JSON
+
+
+Should be working but I'm not sure
+10. Show an increase in the score when picking up a collectible

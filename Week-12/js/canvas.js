@@ -1,8 +1,8 @@
 //basically from last week with a few additions aka JSON
 var canvas;
 var ctx;
-var x = 20; //was 50
-var y = 20; //was 50
+var x = 50; //was 50
+var y = 50; //was 50
 var square1, square2; //blue and lime square
 var collectibles1, collectibles2; //adding collectibles
 var direction;
@@ -37,20 +37,21 @@ function setup()
         drawSquare();
     });
 
-//hmm these are not showing up...
+    //add collectibles...not appearing...
+    collectibles1 = new Collectibles(10,10,20,20,"#FFFF37");//maybe make this color orange
+    collectibles2 = new Collectibles(5,450,20,20,"#FFFF37");
+
 //also making the green square not move... maybe change the i to a different letter
 //or the drawSquare to drawCollectibles
-    //   collectible1 = new collectibles(475,50,20,20,"#FFFF37"); //maybe make this color orange
-    //   collectible2 = new collectibles(480,90,20,20,"#FFFF37");
-    //   //array for collectibles
-    // $.getJSON("data/collectibles.json", function(data) {
-    //     for(var i = 0; i < data.collectibles.length; i++)
-    //     {
-    //         collectiblesArray.push(new Collectibles(data.collectibles[i].x,data.collectibles[i].y, data.collectibles[i].h, data.collectibles[i].w, data.collectibles[i].color));
-    //     }
-    //     //drawCollectibles();
-    //     drawSquare();
-    // });
+      //array for collectibles
+    $.getJSON("data/collectibles.json", function(data) {
+        for(var j = 0; j < data.collectibles.length; j++)
+        {
+            collectiblesArray.push(new Collectibles(data.collectibles[j].x,data.collectibles[j].y, data.collectibles[j].h, data.collectibles[j].w, data.collectibles[j].color));
+        }
+        drawCollectibles();
+        //drawSquare();
+    });
 }
 
 
@@ -117,10 +118,45 @@ function getKey(event)
 
 
 
-//need to add collectible collected function
-//add to collectibles number
-//make collectible disappear
+//collectibles functions
+var test3 = collectibleCollide(collectibles1, collectibles2);
+var test4 = false;
 
+for(var i = 0; i < collectiblesArray.length; i++)
+{
+  {
+    test4 = collectibleCollide(collectible1, collectiblesArray[i]);
+    if(test4 == false)
+      {
+        if(direction == "left")
+        {
+            moveRight();
+        }
+        else if(direction == "right")
+        {
+            moveLeft();
+        }
+        else if(direction == "up")
+        {
+            moveDown();
+        }
+        else if(direction == "down")
+        {
+            moveUp();
+        }
+      }
+if(test3 || test4)
+{
+
+  {
+    collectibles++;//check this name
+    setCollectible.SetActive(false); //I don't think this is right
+  }
+    //console.log(test2);
+ }
+}
+drawSquare();
+}
 
 
 //movement functions
@@ -154,19 +190,17 @@ function drawSquare()
         ctx.fillStyle = squareArray[i].mainColor;
         ctx.fillRect(squareArray[i].x, squareArray[i].y, squareArray[i].width, squareArray[i].height);
     }
-
-//added but it makes all of the text disappear
-    // ctx.fillStyle = collectible1.mainColor;
-    // ctx.fillRect(collectible1.x, collectible1.y, collectible1.width, collectible1.height);
-    // ctx.fillStyle = collectible2.mainColor;
-    // ctx.fillRect(collectible2.x, collectible2.y, collectible2.width, collectible2.height);
-    // //added - do i need to add the other things
-    // for(var i = 0; i < collectiblesArray.length; i++)
-    // {
-    //     ctx.fillStyle = collectiblesArray[i].mainColor;
-    //     ctx.fillRect(collectiblesArray[i].x, collectiblesArray[i].y, collectiblesArray[i].width, collectiblesArray[i].height);
-    // }
-
+//why does the text go away when added?
+    ctx.fillStyle = collectibles1.mainColor;
+    ctx.fillRect(collectibles1.x, collectibles1.y, collectibles1.width, collectibles1.height);
+    ctx.fillStyle = collectibles2.mainColor;
+    ctx.fillRect(collectibles2.x, collectibles2.y, collectibles2.width, collectibles2.height);
+    //added - do i need to add the other things
+    for(var j = 0; j < collectiblesArray.length; j++) //chaged to i to j
+    {
+        ctx.fillStyle = collectiblesArray[j].mainColor;
+        ctx.fillRect(collectiblesArray[j].x, collectiblesArray[j].y, collectiblesArray[j].width, collectiblesArray[j].height);
+    }
 
     ctx.font = "30px Arial"; //font of the lives counter
     ctx.fillText("Lives: " + lives, 10, 35); //last two numbers are the coordinates
@@ -174,7 +208,11 @@ function drawSquare()
     ctx.font = "30px Arial"; //font for collectible counter
     ctx.fillText("Collectibles: " + collectibles, 10, 65); //put it below the lives counter
 
-}
+
+  }
+
+
+
 
 //added
 // function drawCollectibles()
@@ -186,6 +224,14 @@ function drawSquare()
 
 //works for all of the squares
 function hasCollided(object1, object2) {
+    return !(
+        ((object1.y + object1.height) < (object2.y)) ||
+        (object1.y > (object2.y + object2.height)) ||
+        ((object1.x + object1.width) < object2.x) ||
+        (object1.x > (object2.x + object2.width))
+    );
+//collectibles colliding
+  function collectibleCollided(collectibles1, collectibles2) {
     return !(
         ((object1.y + object1.height) < (object2.y)) ||
         (object1.y > (object2.y + object2.height)) ||
