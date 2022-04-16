@@ -40,6 +40,8 @@ var cursors;
 var score = 0;
 var gameOver = false;
 var scoreText;
+var currentLevel;
+var currentLevelText = 1;
 
 var game = new Phaser.Game(config);
 
@@ -51,6 +53,7 @@ function preload ()
     this.load.image('bomb', 'assets/bomb.png');
     this.load.image('diamond', 'assets/diamond.png');
     this.load.image('ball', 'assets/blueball.png');
+    this.load.image('spike', 'assets/spike.png');
     this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
     //change the sprite
 }
@@ -60,9 +63,9 @@ function create ()
     //  A simple background for our game
     this.add.image(400, 300, 'sky');
 
+
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = this.physics.add.staticGroup();
-
 
     //  Here we create the ground.
     //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
@@ -72,6 +75,15 @@ function create ()
     platforms.create(600, 400, 'ground');
     platforms.create(50, 250, 'ground');
     platforms.create(750, 220, 'ground');
+//adding more platforms
+    platforms.create(350, 150, 'ground').setScale(.5).refreshBody(); //refreshBody makes it so that the objects don't hit the platform that was there before
+
+//adding spikes???
+    spikes = this.physics.add.staticGroup();
+    spikes.create(520, 527, 'spike');
+    spikes.create(530, 527, 'spike');
+    spikes.create(540, 527, 'spike');
+
 
     // The player and its settings
     player = this.physics.add.sprite(100, 450, 'dude');
@@ -121,7 +133,7 @@ function create ()
 //otherwise will not collide properly
     diamonds = this.physics.add.group({
         key: 'diamond',
-        repeat: 2,
+        repeat: 2, //3 altogether
         setXY: { x: 50, y: 0, stepX: 300 }
     });
     diamonds.children.iterate(function (child) {
@@ -129,24 +141,24 @@ function create ()
         child.setBounceY(Phaser.Math.FloatBetween(0.2, 0.4));
     });
 
-
+//would be cool to make this like one of the bombs AKA bouncing around
     balls = this.physics.add.group({
         key: 'ball',
-        repeat: 2,
-        setXY: { x: 50, y: 0, stepX: 300 }
+        //repeat: 1,
+        setXY: { x: 390, y: 0, stepX: 300 }
     });
     balls.children.iterate(function (child) {
         //slightly different bounce for the diamonds
         child.setBounceY(Phaser.Math.FloatBetween(0.2, 0.4));
     });
 
-
-
-
     bombs = this.physics.add.group();
 
     //The score
-    scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+    scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
+
+//the level text
+    currentLevelText = this.add.text(624, 16, 'Level: 1', { fontSize: '32px', fill: '#000' })
 
     //  Collide the player and the stars with the platforms
     this.physics.add.collider(player, platforms);
@@ -156,7 +168,6 @@ function create ()
     this.physics.add.collider(diamonds, platforms);
     this.physics.add.collider(balls, platforms);
 
-
     //  Checks to see if the player overlaps with any of the stars if he does call the collectStar function
     this.physics.add.overlap(player, stars, collectStar, null, this);
 //diamond collector collider - overlap NOT collider
@@ -164,7 +175,13 @@ function create ()
     this.physics.add.overlap(player, balls, collectBalls, null, this);
 
     this.physics.add.collider(player, bombs, hitBomb, null, this);
+//add collider for spikes
+    this.physics.add.collider(player, spikes, hitSpike, null, this); //do I want to make it disappear?
 
+//https://phaser.discourse.group/t/how-can-i-make-a-second-level-for-my-game/5579/6
+//predefine that stars were collected
+//if this var is true, change the level
+// this.collectedAll = false;
 
 }
 
@@ -175,7 +192,6 @@ function update ()
     {
         return;
     }
-
     if (cursors.left.isDown)
     {
         player.setVelocityX(-160);
@@ -272,13 +288,8 @@ function collectBalls (player, ball)
         // bomb.setCollideWorldBounds(true);
         // bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
         // bomb.allowGravity = false;
-
     }
 }
-
-//diamond-copy rotation
-//diamond.rotation += 0.01;
-
 
   function hitBomb (player, bomb)
   {
@@ -286,6 +297,41 @@ function collectBalls (player, ball)
       player.setTint(0xff0000);
       player.anims.play('turn');
       gameOver = true;
+  }
+
+//if hit spike take away 20 points
+  function hitSpike (player, spike)
+  {
+    spike.disableBody(true, true);
+    score -= 20;
+    scoreText.setText('Score: ' + score); //make sure to do this part otherwise the score won't update
+  }
+
+//code to check if the score has been reached
+
+
+
+//maybe change the sky color
+
+//next level
+  if(score >= 100){
+    // //destroy sprites
+    // for(let star of this.stars)
+    //   star.destroy();
+    // for(let star of this.diamonds)
+    //   diamond.destroy();
+    // for(let ball of this.balls)
+    //   ball.destroy();
+    // for(let platform of this.platforms)
+    //   platform.destroy();
+    // for(let spike of this.spikes)
+    //   spike.destroy();
+    // for(let bomb of this.bombs)
+    //   bomb.destroy();
+    // this.scene.restart({currentLevel: this.currentLevel + 1});
+    this.add.image(400, 300, 'sky');
+    currentLevel += 1;
+    currentLevelText.setText('Level: ' + currentLevel);
   }
 
 
