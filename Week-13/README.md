@@ -3,7 +3,7 @@ This week went really well.  I thought that this content was really fun to dig t
 
 I went around to a couple different websites to explore different options for level creation but didn't find anything that was more directed at what I wanted to do for guidance.  I wanted to change the level after hitting a certain number of points.
 
-Instead of doing another obstacle that kills the player I decided to do an obstacle that subtracts points from the players score.
+Instead of doing another obstacle that kills the player I decided to do an obstacle that subtracts points from the players score.  I was also working on trying to get my level change to work which is why I made Childers_phaser.html.  I messed around with this and got annoyed so then tried to go back and add a timer instead.  Neither of those aspects work and I think I need to tie the timer into the button press functions somehow.
 
 
 Done
