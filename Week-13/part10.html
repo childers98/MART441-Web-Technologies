@@ -40,8 +40,12 @@ var cursors;
 var score = 0;
 var gameOver = false;
 var scoreText;
+//level increse?
 var currentLevel;
 var currentLevelText = 1;
+//game timer elements
+var timer;
+var total = 30000;
 
 var game = new Phaser.Game(config);
 
@@ -69,20 +73,23 @@ function create ()
 
     //  Here we create the ground.
     //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
-    platforms.create(400, 568, 'ground').setScale(2).refreshBody();
+    platforms.create(400, 568, 'ground').setScale(2).refreshBody(); //main ground
 
     //  Now let's create some ledges
-    platforms.create(600, 400, 'ground');
-    platforms.create(50, 250, 'ground');
-    platforms.create(750, 220, 'ground');
+    platforms.create(650, 430, 'ground').setScale(.5).refreshBody();
+    platforms.create(30, 290, 'ground').setScale(.5).refreshBody();
+    platforms.create(770, 220, 'ground').setScale(.5).refreshBody();
 //adding more platforms
-    platforms.create(350, 150, 'ground').setScale(.5).refreshBody(); //refreshBody makes it so that the objects don't hit the platform that was there before
+    platforms.create(300, 170, 'ground').setScale(.5).refreshBody(); //refreshBody makes it so that the objects don't hit the platform that was there before
+    platforms.create(300, 375, 'ground').setScale(.5).refreshBody();
 
 //adding spikes???
     spikes = this.physics.add.staticGroup();
-    spikes.create(520, 527, 'spike');
+    spikes.create(550, 527, 'spike');
     spikes.create(530, 527, 'spike');
     spikes.create(540, 527, 'spike');
+
+//maybe add more spikes? at the top somewhere
 
 
     // The player and its settings
@@ -99,13 +106,11 @@ function create ()
         frameRate: 10,
         repeat: -1
     });
-
     this.anims.create({
         key: 'turn',
         frames: [ { key: 'dude', frame: 4 } ],
         frameRate: 20
     });
-
     this.anims.create({
         key: 'right',
         frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
@@ -120,14 +125,22 @@ function create ()
     stars = this.physics.add.group({
         key: 'star',
         repeat: 11,
-        setXY: { x: 12, y: 0, stepX: 70 }
+        // setXY: { x: 20, y: 0, stepX: 200},
+        setXY: { x: 10, y: 0, stepX: 70 }
+        // x: Phaser.Math.FloatBetween(0,600), //have to make sure the capitals are correct
+        // y: Phaser.Math.FloatBetween(0,800)
     });
-
     stars.children.iterate(function (child) {
         //  Give each star a slightly different bounce
         child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-
+        //different gravities for stars
+        child.setGravityY(Phaser.Math.FloatBetween(.01, 10));
     });
+
+//different gravity for star...
+//https://www.youtube.com/watch?v=WJH3E7HTMh4
+    let shine = this.physics.add.sprite(255, 0, "star");
+    shine.setGravityY(20);
 
 //diamonds - needs to have an s or something to be different from the key
 //otherwise will not collide properly
@@ -138,7 +151,7 @@ function create ()
     });
     diamonds.children.iterate(function (child) {
         //slightly different bounce for the diamonds
-        child.setBounceY(Phaser.Math.FloatBetween(0.2, 0.4));
+        child.setBounceY(Phaser.Math.FloatBetween(0.1, 0.4));
     });
 
 //would be cool to make this like one of the bombs AKA bouncing around
@@ -159,6 +172,8 @@ function create ()
 
 //the level text
     currentLevelText = this.add.text(624, 16, 'Level: 1', { fontSize: '32px', fill: '#000' })
+//timer
+    timer = this.add.text(16, 46, 'Time Left: 30', { fontSize: '32px', fill: '#000' })
 
     //  Collide the player and the stars with the platforms
     this.physics.add.collider(player, platforms);
@@ -167,12 +182,14 @@ function create ()
 //add this collider for the diamonds
     this.physics.add.collider(diamonds, platforms);
     this.physics.add.collider(balls, platforms);
+    this.physics.add.collider(shine, platforms);
 
     //  Checks to see if the player overlaps with any of the stars if he does call the collectStar function
     this.physics.add.overlap(player, stars, collectStar, null, this);
 //diamond collector collider - overlap NOT collider
     this.physics.add.overlap(player, diamonds, collectDiamond, null, this);//make sure this matches the above collider
     this.physics.add.overlap(player, balls, collectBalls, null, this);
+    this.physics.add.collider(player, shine, collectStar, null, this);
 
     this.physics.add.collider(player, bombs, hitBomb, null, this);
 //add collider for spikes
@@ -182,6 +199,15 @@ function create ()
 //predefine that stars were collected
 //if this var is true, change the level
 // this.collectedAll = false;
+
+
+//timer function
+    //timer = game.time.create(false);
+    //set a TimerEvent to occur after 2 seconds
+    //timer.loop(2000, updateCounter, this);
+    //start the timer
+    //won't start automatically allowing it to be hooked up to button events
+    //timer.start();
 
 }
 
@@ -214,6 +240,12 @@ function update ()
     }
 }
 
+function updateCounter(){
+    timer--;
+    totalText.setText('Time Left' + timer);
+
+}
+
 function collectStar (player, star)
 {
     star.disableBody(true, true);
@@ -228,9 +260,7 @@ function collectStar (player, star)
         stars.children.iterate(function (child) {
 
             child.enableBody(true, child.x, 0, true, true);
-
         });
-
         var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
 
         var bomb = bombs.create(x, 16, 'bomb');
@@ -238,7 +268,6 @@ function collectStar (player, star)
         bomb.setCollideWorldBounds(true);
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
         bomb.allowGravity = false;
-
     }
 }
 
@@ -248,14 +277,12 @@ function collectDiamond (player, diamond)
     //  Add and update the score
     score += 20;
     scoreText.setText('Score: ' + score);
-
     if (diamonds.countActive(true) === 0)
     {
-        //  A new batch of stars to collect
+        //  A new batch of diamonds to collect
         diamonds.children.iterate(function (child) {
             child.enableBody(true, child.x, 0, true, true);
         });
-
         // var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
         //
         // var bomb = bombs.create(x, 16, 'bomb');
@@ -263,7 +290,6 @@ function collectDiamond (player, diamond)
         // bomb.setCollideWorldBounds(true);
         // bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
         // bomb.allowGravity = false;
-
     }
 }
 
@@ -273,14 +299,12 @@ function collectBalls (player, ball)
     //  Add and update the score
     score += 30;
     scoreText.setText('Score: ' + score);
-
     if (balls.countActive(true) === 0)
     {
-        //  A new batch of stars to collect
+        //  A new batch of balls to collect
         balls.children.iterate(function (child) {
             child.enableBody(true, child.x, 0, true, true);
         });
-
         // var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
         //
         // var bomb = bombs.create(x, 16, 'bomb');
@@ -314,7 +338,7 @@ function collectBalls (player, ball)
 //maybe change the sky color
 
 //next level
-  if(score >= 100){
+  if(score > 100){
     // //destroy sprites
     // for(let star of this.stars)
     //   star.destroy();
@@ -333,6 +357,8 @@ function collectBalls (player, ball)
     currentLevel += 1;
     currentLevelText.setText('Level: ' + currentLevel);
   }
+
+
 
 
 </script>
