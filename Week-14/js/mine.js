@@ -2,6 +2,23 @@ var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 var cube, cube2; //cubes that will be rotating
 var modelObject;
+var loader = new THREE.FontLoader();
+
+loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
+
+var geometry = new THREE.TextGeometry( 'Howdy!', {
+        font: font,
+        size: 80,
+        height: 5,
+        curveSegments: 12,
+        bevelEnabled: true,
+        bevelThickness: 10,
+        bevelSize: 8,
+        bevelOffset: 0,
+        bevelSegments: 5
+    } );
+} );
+
 //first box
 function createBox() {
   // create a box
@@ -13,9 +30,9 @@ function createBox() {
   });
   cube = new THREE.Mesh(geometry, material);
   //cube.position.set(50, 0, 0); (x, y, z)
-  cube.position.set(100, 30, 0); //will ‘z’ make it further/deeper on the canvas??
+  cube.position.set(50, 10, -10); //will ‘z’ make it further/deeper on the canvas??
   scene.add(cube);
-  cube.scale.x = 15; // SCALE
+  cube.scale.x = 7; // SCALE
   cube.scale.y = 15; // SCALE
   cube.scale.z = 15; // SCALE
   animate();
@@ -30,7 +47,7 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-// create the second box and add it as a child of the first box
+//create the second box and add it as a child of the first box
 function createBox2() {
   //create 2nd box
   var geometry = new THREE.BoxGeometry();
@@ -142,7 +159,6 @@ function animateModel() {
 }
 
 /* Render the scene */
-
 function render() {
   requestAnimationFrame(render);
   renderer.render(scene, camera);
