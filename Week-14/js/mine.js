@@ -4,20 +4,87 @@ var cube, cube2; //cubes that will be rotating
 var modelObject;
 var loader = new THREE.FontLoader();
 
-loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
+//Font/Text
+// loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
+//
+// var geometry = new THREE.TextGeometry( 'Howdy!', {
+//         font: font,
+//         size: 80,
+//         height: 5,
+//         curveSegments: 12,
+//         bevelEnabled: true,
+//         bevelThickness: 10,
+//         bevelSize: 8,
+//         bevelOffset: 0,
+//         bevelSegments: 5
+//     } );
+// } );
 
-var geometry = new THREE.TextGeometry( 'Howdy!', {
-        font: font,
-        size: 80,
-        height: 5,
-        curveSegments: 12,
-        bevelEnabled: true,
-        bevelThickness: 10,
-        bevelSize: 8,
-        bevelOffset: 0,
-        bevelSegments: 5
-    } );
-} );
+// renderer.setClearColor(0xdddddd)
+//  renderer.setSize(window.innerWidth, window.innerHeight)
+//
+//  var increment = 0
+//  var render = function(){
+//    increment += 0.01
+//    requestAnimationFrame(render);
+//
+//    spinCamera()
+//    renderer.render(scene, camera);
+//  };
+//  loadFont()
+//  render();
+
+ //Settings
+ // var text = "aems",
+ //    height = 2,
+ //    size = 12,
+ //    curveSegments = 10,
+ //    bevelThickness = 1,
+ //    bevelSize = 0.3,
+ //    bevelSegments = 3,
+ //    bevelEnabled = true,
+ //    font = undefined
+ //
+ //  var rotation = 0
+ //
+ //  function loadFont() {
+ //    var loader = new THREE.FontLoader();
+ //
+ //    loader.load( 'fonts/helvetiker_regular.typeface.json', function(res) {
+ //     font = res;
+ //     createText();
+ //   });
+ //
+ //  }
+
+//   function createText(){
+//     //change text right here
+//     textGeo = new THREE.TextGeometry('Howdy!', {
+//          font: font,
+//          size: size,
+//          height: height,
+//          curveSegments: curveSegments,
+//          weight: "normal",
+//          bevelThickness: bevelThickness,
+//          bevelSize: bevelSize,
+//          bevelSegments: bevelSegments,
+//          bevelEnabled: bevelEnabled
+//      });
+//      textGeo.computeBoundingBox();
+//      textGeo.computeVertexNormals();
+//
+//
+//   //change the color
+//   var color = new THREE.Color(0xff0000);
+//   var textMaterial = new THREE.MeshBasicMaterial({
+//     color: color
+//   });
+//   var text = new THREE.Mesh(textGeo, textMaterial)
+//   text.position.x = -textGeo.boundingBox.max.x / 2;
+//   text.castShadow = true;
+//   scene.add(text)
+// }
+
 
 //first box
 function createBox() {
