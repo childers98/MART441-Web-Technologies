@@ -1,7 +1,7 @@
 How did it go?
 I think it went pretty well.  It was pretty interesting to implement the changes with the information.  It was basically a refresher of last semester.  I definitely remembered quite a bit about the querystring.
 
-Installing node was good and experimenting was interesting.
+Installing node was good and experimenting was interesting.  Definitely don't think everything I tried out worked but it was nice to work through anyways
 
 1. Install node.js.
 2. Experiment with callbacks, streams and the file system to create a web application that allows you to gather and display data from the user.
