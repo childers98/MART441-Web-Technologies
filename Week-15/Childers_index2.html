@@ -1,0 +1,41 @@
+<html>
+   <head>
+      <title>Node.js Input HTML</title>
+      <style>
+         body{
+            background-color: #ECDADF;
+         }
+      </style>
+      <script>
+         function refreshPage()
+         {
+            const params = new URLSearchParams(window.location.search)
+            var fName = params.get("firstName");
+            var lName = params.get("lastName");
+	          var mEmail = params.get("myEmail");
+	          var pNumber = params.get("phoneNumber");
+            var refresh = params.has("norefresh");
+            if(!refresh)
+            {
+               window.location = "Childers_index2.html?firstName=" + fName + "&lastName=" + lName + "&myEmail=" + mEmail + "&phoneNumber=" + pNumber
++ "&norefresh=1";
+            }
+         }
+      </script>
+   </head>
+
+   <body onload="refreshPage();">
+     <h1>
+       Welcome!
+     </h1>
+     <!-- Needs to pull elements from first index page -->
+     <span>Grant Williams</span>
+     <h2>
+Are the email and phone number above correct?
+      </h2>
+<!-- how do I fix this so that it separates the two elements out??-->
+<span></span>
+
+
+   </body>
+</html>

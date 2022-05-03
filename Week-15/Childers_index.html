@@ -1,0 +1,60 @@
+<html>
+   <head>
+      <title>Experimenting with Node.js - Week 15</title>
+      <style>
+         body{
+            background-color: #ECDADF;
+         }
+      </style>
+
+   </head>
+
+   <body>
+     <h1>
+        Contact Us
+     </h1>
+
+     <!-- Goes to the other index file -->
+     <form action="Childers_index2.html" method="GET">
+         <table>
+            <tr>
+               <td>
+                  First Name:
+               </td>
+               <td>
+                  <input type="text" name="firstName" id="firstName">
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  Last Name:
+               </td>
+               <td>
+                  <input type="text" id="lastName" name="lastName">
+               </td>
+            </tr>
+	   <tr>
+               <td>
+                  Email:
+               </td>
+               <td>
+                  <input type="text" name="myEmail" id="myEmail">
+               </td>
+            </tr>   <tr>
+               <td>
+                  Phone Number:
+               </td>
+               <td>
+                  <input type="text" name="phoneNumber" id="phoneNumber">
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <input type="submit" value="Submit">
+                  <!-- needs to go to the second page when the submit button is hit so we use GET-->
+               </td>
+            </tr>
+         </table>
+     </form>
+   </body>
+</html>
