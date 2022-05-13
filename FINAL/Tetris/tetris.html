@@ -1,0 +1,37 @@
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"/>
+  <link rel="stylesheet" type="text/css" href="css/main.css"></link>
+  <!-- have to put in rel="stylesheet" otherwise it won't work -->
+</head>
+<body>
+<!-- let canvas = document.getElementById(‘canvas’);
+let ctx = canvas.getContext(‘2d’);
+ctx.fillStyle = ‘red’; //change to black?
+ctx.fillRect(x, y, width, height); //tetris pieces are all squares so we can reuse this for all of the shapes -->
+
+	<script type= “text/javascript” src = “js/constants.js”></script>
+	<script type= “text/javascript” src= “js/board.js”></script>
+	<script type= “text/javascript” src= “js/piece.js”></script>
+	<script type= “text/javascript” src= “js/main.js”></script>
+
+
+  <div class="grid">
+    <canvas id="canvas" class="gameBoard" width= "300" height="600"></canvas>
+    <div class="rightColumn">
+      <div>
+        <h1>Tetris</h1>
+        <p>Score: <span id="score">0</span></p>
+        <p>Lines: <span id="score">0</span></p>
+        <p>Level: <span id="level">0</span></p>
+        <canvas id="next" class="next"></canvas>
+      </div>
+      <!-- play() is undefined??? -->
+      <!-- <button onclick="play()" class="playButton">Play</button> -->
+      <button id="btn" class="playButton" type="button" onclick="play()">Play</button>
+
+    </div>
+  </div>
+</body>
+
+</html>

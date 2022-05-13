@@ -1,0 +1,123 @@
+
+<!-- saved from url=(0056)https://js.educative.io/static/runjs/index.html?id=TJWOX -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link href="./css" rel="stylesheet">
+
+<style>* {
+  font-family: "Press Start 2P", cursive;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 320px 200px;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.game-board {
+  border: solid 2px;
+}
+
+.play-button {
+  background-color: #4caf50;
+  font-size: 16px;
+  padding: 15px 30px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+  <div class="grid">
+      <canvas id="board" class="game-board" width="300" height="600"></canvas>
+      <div class="right-column">
+          <div>
+              <h1>TETRIS</h1>
+              <p>Score: <span id="score">0</span></p>
+              <p>Lines: <span id="lines">0</span></p>
+              <p>Level: <span id="level">0</span></p>
+              <canvas id="next" class="next"></canvas>
+          </div>
+          <button onclick="play()" class="play-button">Play</button>
+      </div>
+  </div>
+
+<script language="javascript" type="text/javascript">
+
+;
+const COLS = 10;
+const ROWS = 20;
+const BLOCK_SIZE = 30;
+
+const canvas = document.getElementById('board');
+const ctx = canvas.getContext('2d');
+
+let board = null;
+ 
+// Calculate size of canvas from constants.
+ctx.canvas.width = COLS * BLOCK_SIZE;
+ctx.canvas.height = ROWS * BLOCK_SIZE;
+ 
+// Scale blocks
+ctx.scale(BLOCK_SIZE, BLOCK_SIZE);
+
+class Board {  
+  constructor(ctx) {
+    this.ctx = ctx;
+    this.grid = this.getEmptyBoard();
+    this.piece = new Piece(ctx);
+  }
+
+  // Get matrix filled with zeros.
+  getEmptyBoard() {
+    return Array.from(
+      {length: ROWS}, () => Array(COLS).fill(0)
+    );
+  }
+}
+
+class Piece { 
+  constructor(ctx) {  
+    this.ctx = ctx;  
+
+    this.color = 'blue';  
+    this.shape = [  
+      [2, 0, 0],   
+      [2, 2, 2],   
+      [0, 0, 0]  
+    ];
+ 
+    // Starting position.  
+    this.x = 3;  
+    this.y = 0;  
+  }
+  
+  draw() {
+    this.ctx.fillStyle = this.color;
+    this.shape.forEach((row, y) => {
+      row.forEach((value, x) => {
+        if (value > 0) {
+          this.ctx.fillRect(this.x + x, this.y + y, 1, 1);
+        }
+      });
+    });
+  }
+}
+ 
+function play() {
+  board = new Board(ctx);
+  draw();
+}
+
+function draw() {
+    const { width, height } = ctx.canvas; 
+    ctx.clearRect(0, 0, width, height);
+ 
+    board.piece.draw();
+}
+</script>
+
+</body></html>
