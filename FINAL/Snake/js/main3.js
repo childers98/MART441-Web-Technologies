@@ -4,6 +4,8 @@ var snakeCol = 'lightpink';//change
 //careful of spelling
 var snakeBorder = 'darkpink';//change
 
+//score
+let score = 0;
 //velocity
 let dx = 10;
 let dy = 0;
@@ -32,7 +34,7 @@ main();
 
 generateFood();
 
-document.addEventListener("keypressed", changeDirection);  //change_direction
+document.addEventListener("keydown", changeDirection);  //change_direction
 
 //call main function repeatedly to keep the game running
 function main()
@@ -86,7 +88,18 @@ function hasGameEnded()
 
 function randomFood(min, max)
 {
-  
+  return Math.round((Math.random() * (max-min) + min) / 10) * 10;
+}
+
+function generateFood()
+{
+  foodX = randomFood(0, board.width -20);
+  foodY = randomFood(0, board.height - 20);
+  snake.forEach(function hasSnakeEatenFood(part)
+  {
+    var hasEaten = part.x == foodX && part.y == foodY;
+    if(hasEaten) generateFood();
+  });
 }
 
 //change to awsd?
@@ -129,5 +142,14 @@ function moveSnake()
 {
   var head = {x: snake[0].x + dx, y: snake[0].y + dy};
   snake.unshift(head);
-  snake.pop();
+  var hasEatenFood = snake[0].x === foodX && snake[0].y === foodY;
+  if(hasEatenFood)
+  {
+    score += 10;
+    document.getElementById('score').innerHTML = score;
+    generateFood();
+  }
+  else {
+    snake.pop();
+  }
 }
