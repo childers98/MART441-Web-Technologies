@@ -6,15 +6,14 @@ var snakeBorder = 'darkpink';//change
 
 //score
 let score = 0;
-//velocity
-let dx = 10;
-let dy = 0;
+//true if changing direction
+let changeDirection = false;//changing_direction
 //food
 let foodX;
 let foodY;
-
-//true if changing direction
-let changeDirection = false;//changing_direction
+//velocity
+let dx = 10;
+let dy = 0;
 
 //pieces of the snake
 let snake =
@@ -31,7 +30,6 @@ var board = document.getElementById("board");
 var board_ctx = board.getContext("2d");
 //start game
 main();
-
 generateFood();
 
 document.addEventListener("keydown", direction);  //change_direction
@@ -65,6 +63,14 @@ function drawSnake()
   snake.forEach(drawSnakePart)
 }
 
+function drawFood()
+{
+  board_ctx.fillStyle = 'lightorange';
+  board_ctx.strokestyle = 'darkorange';
+  board_ctx.fillRect(foodX, foodY, 10, 10);
+  board_ctx.strokeRect(foodX, foodY, 10, 10);
+}
+
 function drawSnakePart(snakePart)
 {
   board_ctx.fillStyle = snakeCol;
@@ -95,6 +101,7 @@ function generateFood()
 {
   foodX = randomFood(0, board.width -20);
   foodY = randomFood(0, board.height - 20);
+  //food is where snake currently is
   snake.forEach(function hasSnakeEatenFood(part)
   {
     var hasEaten = part.x == foodX && part.y == foodY;
@@ -118,21 +125,23 @@ function direction(event)//changing_direction
   var goingDown = dy === 10;
   var goingRight = dx === 10;
   var goingLeft = dx === -10;
-
   if(keyPressed === leftKey && !goingRight)
   {
     dx = -10;
     dy = 0;
   }
-  if (keyPressed === upKey && !goingDown) {
+  if (keyPressed === upKey && !goingDown)
+  {
     dx = 0;
     dy = -10;
   }
-  if (keyPressed === rightKey && !goingLeft) {
+  if (keyPressed === rightKey && !goingLeft)
+  {
     dx = 10;
     dy = 0;
   }
-  if (keyPressed === downKey && !goingUp) {
+  if (keyPressed === downKey && !goingUp)
+  {
     dx = 0;
     dy = 10;
   }
