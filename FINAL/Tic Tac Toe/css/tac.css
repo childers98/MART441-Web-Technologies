@@ -1,0 +1,50 @@
+h1 {
+  color: darkviolet;
+  font-size: 30px;
+}
+
+body {
+  background-color: lightgray;
+}
+
+#b1, #b2, #b3, #b4, #b5, #b6, #b7, #b8, #b9 {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  background-color: #F6E6FF;
+  border: 2px solid darkviolet;
+  border-radius: 5px;
+  font-size: 25px;
+  text-align: center;
+
+}
+
+#reset {
+  border: darkviolet;
+  margin: auto;
+  background-color: darkviolet;
+  color: white;
+  font-size: 25px;
+}
+
+#turn{
+  color: darkviolet;
+  font-size: 25px;
+}
+
+#but{
+  background-color: darkviolet;
+  color: white;
+  border: none;
+  width: 75px;
+  height: 30px;
+}
+
+#main {
+  text-align: center;
+}
+
+#rules {
+  color: darkviolet;
+  font-size: 18px;
+}

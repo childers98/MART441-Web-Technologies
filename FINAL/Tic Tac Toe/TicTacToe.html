@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+	<!-- Okayyyyy why isn't this working??? -->
+	<!--looks like it is just this file for some reason...--->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/tac.css">
+	<script src="js/tic2.js"></script>
+</head>
+
+<!-- need to have 9 boxes in total to update -- >
+<body>
+	<div id="main">
+		<h1>Tic Tac Toe</h1>
+		<p id="rules">
+		Game begins when a box is selected</p>
+	</div>
+
+	<br>
+	<input type="text" id="b1" onclick="firstBox(); myFunction();" readonly>
+	<input type="text" id="b2" onclick="secondBox(); myFunction();" readonly>
+	<input type="text" id="b3" onclick="thirdBox(); myFunction();" readonly>
+	<input type="text" id="b4" onclick="fourthBox(); myFunction();" readonly>
+	<input type="text" id="b5" onclick="fifthBox(); myFunction();" readonly>
+	<input type="text" id="b6" onclick="sixthBox(); myFunction();" readonly>
+	<input type="text" id="b7" onclick="seventhBox(); myFunction();" readonly>
+	<input type="text" id="b8" onclick="eighthBox(); myFunction();" readonly>
+	<input type="text" id="b9" onclick="ninthBox(); myFunction();" readonly>
+
+	<br>
+	<button id="reset" onclick="reset();">Reset</button>
+	<br>
+	<!-- who's turn is it -->
+	<p id="turn"></p>
+
+</div>
+
+
+</body>
+</html>

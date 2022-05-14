@@ -41,7 +41,7 @@
       main();
       generateFood();
 
-      docuent.addEventListener("keyPressed", changeDirection);
+      document.addEventListener("keyPressed", changeDirection);
 
       //also made this function but did not add to the tutorial
       function main()
@@ -64,8 +64,8 @@
       function clearCanvas()
       {
       	//selecting items
-      	gameBoard_ctx.fillStyle = board_background;
-      	gameBoard_ctx.strokestyle = board_border;
+      	gameBoard_ctx.fillStyle = boardBackground;
+      	gameBoard_ctx.strokestyle = boardBorder;
       	gameBoard_ctx.fillRect(0, 0, gameBoard.width, gameBoard.height);
       	//border
       	gameBoard_ctx.strokeRect(0, 0, gameBoard.width, gameBoard.height);
@@ -185,7 +185,7 @@
       //food - random_food and gen_food
       function randomFood(min, max)
       {
-      	return Math.round((Math.random() * (max-min) + min) / 10 * 10;
+      	return Math.round((Math.random() * (max-min) + min) / 10 * 10);
       }
 
       function generateFood()

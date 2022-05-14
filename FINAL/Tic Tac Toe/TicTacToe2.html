@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- not sure what changed but this works??-->
+    <meta name="viewport" content=
+        "width=device-width, initial-scale=1.0">
+
+    <!-- CSS file Included -->
+    <link rel="stylesheet"
+        type="text/css" href="css/tac.css">
+
+    <!-- JavaScript file included -->
+    <script src="js/tic.js"></script>
+</head>
+
+<body>
+    <div id="main">
+        <h1>Tic Tac Toe for Losers</h1>
+
+        <!-- Game Instructions -->
+        <p id="ins">Tap on a box to start the game
+          <br><br>First Player starts as X
+          <br>and Second Player as Player O
+        </p>
+
+        <br><br>
+        <!-- 3*3 grid of Boxes -->
+        <input type="text" id="b1" onclick=
+            "firstBox(); myFunction();" readonly>
+
+        <input type="text" id="b2" onclick=
+            "secondBox(); myFunction();" readonly>
+
+        <input type="text" id="b3" onclick=
+            "thirdBox(); myFunction();" readonly>
+        <br><br>
+
+        <input type="text" id="b4" onclick=
+            "fourthBox(); myFunction();" readonly>
+
+        <input type="text" id="b5" onclick=
+            "fifthBox(); myFunction();" readonly>
+
+        <input type="text" id="b6" onclick=
+            "sixthBox(); myFunction();" readonly>
+        <br><br>
+
+        <input type="text" id="b7" onclick=
+            "seventhBox(); myFunction();" readonly>
+
+        <input type="text" id="b8" onclick=
+            "eighthBox(); myFunction();" readonly>
+
+        <input type="text" id="b9" onclick=
+            "ninthBox(); myFunction();" readonly>
+
+        <!-- Grid end here  -->
+        <br><br><br>
+        <!-- Button to reset game -->
+        <button id="but" onclick="reset">
+            Reset
+        </button>
+
+        <br><br>
+        <!-- Space to show player turn -->
+        <p id="turn"></p>
+
+
+
+
+    </div>
+</body>
+
+</html>
