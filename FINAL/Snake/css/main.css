@@ -1,0 +1,8 @@
+#score {
+  font-size: 50px;
+  text-align: left;
+}
+
+#board{
+  position: absolute;
+}

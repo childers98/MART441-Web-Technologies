@@ -2,7 +2,7 @@ var boardBorder = 'black';
 var boardBackground = '#FFE6FD';
 var snakeCol = 'lightpink';//change
 //careful of spelling
-var snakeBorder = 'darkpink';//change
+var snakeBorder = '#FF21F1';//change
 
 //score
 let score = 0;
@@ -42,6 +42,7 @@ function main()
   setTimeout(function onTick()
   {
     clearCanvas();//clear_board
+    drawFood();
     moveSnake();
     drawSnake();
     main();
@@ -65,8 +66,8 @@ function drawSnake()
 
 function drawFood()
 {
-  board_ctx.fillStyle = 'lightorange';
-  board_ctx.strokestyle = 'darkorange';
+  board_ctx.fillStyle = '#FFCE21';
+  board_ctx.strokestyle = '#FFA019';
   board_ctx.fillRect(foodX, foodY, 10, 10);
   board_ctx.strokeRect(foodX, foodY, 10, 10);
 }
@@ -81,7 +82,7 @@ function drawSnakePart(snakePart)
 
 function hasGameEnded()
 {
-  for(let i=4; i < snake.length; i++)
+  for(let i = 4; i < snake.length; i++)
   {
     if(snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true
   }
@@ -99,7 +100,7 @@ function randomFood(min, max)
 
 function generateFood()
 {
-  foodX = randomFood(0, board.width -20);
+  foodX = randomFood(0, board.width - 20);
   foodY = randomFood(0, board.height - 20);
   //food is where snake currently is
   snake.forEach(function hasSnakeEatenFood(part)
@@ -112,35 +113,36 @@ function generateFood()
 //change to awsd?
 function direction(event)//changing_direction
 {
-  var leftKey = 37;
-  var rightKey = 39;
-  var upKey = 38;
-  var downKey = 40;
+  const leftKey = 37;
+  const rightKey = 39;
+  const upKey = 38;
+  const downKey = 40;
 
   //prevent snake from reversing
-  if(direction) return;
-  direction = true;
+  if(direction) return; //change_direction
+  direction = true; //change_direction
   var keyPressed = event.keyCode;
   var goingUp = dy === -10;
   var goingDown = dy === 10;
   var goingRight = dx === 10;
   var goingLeft = dx === -10;
+
   if(keyPressed === leftKey && !goingRight)
   {
     dx = -10;
     dy = 0;
   }
-  if (keyPressed === upKey && !goingDown)
+  if(keyPressed === upKey && !goingDown)
   {
     dx = 0;
     dy = -10;
   }
-  if (keyPressed === rightKey && !goingLeft)
+  if(keyPressed === rightKey && !goingLeft)
   {
     dx = 10;
     dy = 0;
   }
-  if (keyPressed === downKey && !goingUp)
+  if(keyPressed === downKey && !goingUp)
   {
     dx = 0;
     dy = 10;
@@ -158,7 +160,16 @@ function moveSnake()
     document.getElementById('score').innerHTML = score;
     generateFood();
   }
-  else {
+  else
+  {
     snake.pop();
   }
+
+  document.addEventListener("DOMContentLoaded", function ()
+    {
+      pTag = document.querySelector("div");
+      newVal = document.createElement("p");
+      newVal.innerHTML = '';
+      pTag.appendChild(newVal);
+    });
 }
