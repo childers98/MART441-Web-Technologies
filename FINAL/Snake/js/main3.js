@@ -34,7 +34,7 @@ main();
 
 generateFood();
 
-document.addEventListener("keydown", changeDirection);  //change_direction
+document.addEventListener("keydown", direction);  //change_direction
 
 //call main function repeatedly to keep the game running
 function main()
