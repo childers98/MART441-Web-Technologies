@@ -84,7 +84,8 @@ function hasGameEnded()
 {
   for(let i = 4; i < snake.length; i++)
   {
-    if(snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true
+    var hasCollided = (snake[i].x === snake[0].x && snake[i].y === snake[0].y)
+    if(hasCollided) return true
   }
   var hitLeftWall = snake[0].x < 0;
   var hitRightWall = snake[0].x > board.width - 10;
@@ -165,11 +166,11 @@ function moveSnake()
     snake.pop();
   }
 
-  document.addEventListener("DOMContentLoaded", function ()
-    {
-      pTag = document.querySelector("div");
-      newVal = document.createElement("p");
-      newVal.innerHTML = '';
-      pTag.appendChild(newVal);
-    });
+  // document.addEventListener("DOMContentLoaded", function ()
+  //   {
+  //     pTag = document.querySelector("div");
+  //     newVal = document.createElement("p");
+  //     newVal.innerHTML = '';
+  //     pTag.appendChild(newVal);
+  //   });
 }
